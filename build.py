@@ -130,6 +130,34 @@ for v in TOP_VIDEOS:
   <div class="vinfo"><b>{t}</b><span>{c} · {a}</span><div class="piece-stats"><span>{g['compras']} compras</span><span>{cop(g['cpa'])} / compra</span></div></div>
 </div>'''
 
+# ---------- galería de creadores top ----------
+TOP_CREATORS = ['Sammy Cáceres','Jaime','Yeyo Agudelo','Natalia Múnera','Gabriela Schiappa']
+cslug = {'Sammy Cáceres':'sammy_caceres','Jaime':'jaime','Yeyo Agudelo':'yeyo_agudelo','Natalia Múnera':'natalia_munera','Gabriela Schiappa':'gabriela_schiappa'}
+cbest = {}
+for v,rows in vid.items():
+    c=VIDEOS[v][1]
+    if vagg[v]['compras']>=10 and (c not in cbest or vagg[v]['roas']>vagg[cbest[c]]['roas']): cbest[c]=v
+cnote = {
+ 'Sammy Cáceres':'El mejor de la campaña con muestra sólida y el único con dos videos ganadores en dos ángulos distintos. Tiene además el mejor CTR de todos (2,78% en Prioridad alimenticia).',
+ 'Jaime':'El caballo de batalla: un solo video suma 170 compras y el 21% del gasto. Necesita una versión nueva de su creatina porque la v1 ya está saturada.',
+ 'Yeyo Agudelo':'Tres videos y dos de ellos ganadores. Como entrenador es el validador que sí convierte: su Curiosidad compra a $13.601 en el conjunto iso low.',
+ 'Natalia Múnera':'Su Rutina v2 es el segundo mejor video de la campaña (8,04); su Rutina v1 es el peor con muestra. Repetir el estilo de la v2.',
+ 'Gabriela Schiappa':'El costo por compra más bajo entre los creadores del ranking. Su fuerza está en el ángulo Pregunta retadora, no en Rutina.',
+}
+ccards=''
+for c in TOP_CREATORS:
+    g=cagg[c]; f=f'videos/creador_{cslug[c]}.mp4'
+    media = f'<video controls playsinline preload="metadata" src="{f}"></video>' if os.path.exists(f) else f'<div class="vph">{PH_SVG}<span>Video pendiente</span></div>'
+    bv=VIDEOS[cbest[c]][0]; bg=vagg[cbest[c]]
+    ccards += f'''<div class="ccard">
+  <div class="vmedia">{media}</div>
+  <div class="cinfo">
+    <div class="cn">{c}</div><div class="cr">{crole[c]} · {g['share']:.0f}% del gasto</div>
+    <div class="cbig"><div><b>{r2(g['roas'])}</b><span>ROAS</span></div><div><b>{g['compras']}</b><span>Compras</span></div><div><b>{cop(g['cpa'])}</b><span>Por compra</span></div><div><b>{bv}</b><span>Mejor video · {r2(bg['roas'])}</span></div></div>
+    <p>{cnote[c]}</p>
+  </div>
+</div>'''
+
 head = open('/Users/realjuanfe/Desktop/sin-intermediarios-analisis/index.html').read().split('<body>')[0]
 head = head.replace('511 compras con ROAS 5,43 y qué decidimos con cada ángulo', '791 compras con ROAS 5,86. Ranking de ángulos, videos y creadores, y qué hacer para seguir escalando')
 extra_css = '''
@@ -170,6 +198,19 @@ extra_css = '''
         .vinfo > span { display:block; font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 10px; }
         .vinfo .piece-stats { gap:5px; } .vinfo .piece-stats span { display:inline-block; margin:0; font-size:10.5px; padding:2px 8px; }
         @media (max-width:720px){ .vgrid{grid-template-columns:1fr 1fr; gap:10px;} .vinfo{padding:12px;} .vinfo b{font-size:13.5px;} }
+
+        .cgrid { display:grid; gap:14px; }
+        .ccard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:grid; grid-template-columns:150px 1fr; }
+        .ccard .vmedia { aspect-ratio:9/16; }
+        .cinfo { padding:20px 24px; display:flex; flex-direction:column; justify-content:center; }
+        .cinfo .cn { font-size:19px; font-weight:900; color:var(--ink); letter-spacing:-0.5px; }
+        .cinfo .cr { font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 14px; }
+        .cinfo .cbig { display:flex; gap:22px; flex-wrap:wrap; margin-bottom:12px; }
+        .cinfo .cbig div b { display:block; font-size:24px; font-weight:900; letter-spacing:-0.8px; color:var(--ink); line-height:1.1; }
+        .cinfo .cbig div:first-child b { color:var(--green); }
+        .cinfo .cbig div span { font-size:11px; font-weight:700; color:#9ca3af; text-transform:uppercase; letter-spacing:0.5px; }
+        .cinfo p { font-size:13.5px; color:#6b7280; margin:0; line-height:1.5; }
+        @media (max-width:720px){ .ccard{grid-template-columns:1fr;} .ccard .vmedia{aspect-ratio:9/12;} .cinfo{padding:16px;} }
     </style>'''
 head = head.replace('    </style>', extra_css, 1)
 
@@ -244,6 +285,12 @@ body = f'''<body>
                 <span class="kpi-star-tag">Lo que sigue al revés</span>
                 <span class="kpi-star-text">Jaime, David y Alejandra concentran el <b>52% del gasto</b> con ROAS entre 4,65 y 6,29. Sammy y Yeyo, los dos mejores del ranking, tienen el <b>23%</b>. Y los cinco videos ganadores (Creatina costosa, Rutina v2, Pregunta v2, Curiosidad, Pregunta frecuente) rinden <b>{r2(gwin['roas'])}</b> con apenas el <b>{gwin['share']:.0f}% del presupuesto</b>.</span>
             </div>
+        </section>
+
+        <section>
+            <h2>Los creadores que más venden</h2>
+            <p>Los cinco creadores que repiten en la segunda tanda, con su mejor pieza. El video de cada tarjeta es su pieza más vendedora.</p>
+            <div class="cgrid">{ccards}</div>
         </section>
 
         <section>
