@@ -23,10 +23,10 @@ for k,s in ADSETS.items():
     ang[s[0]].append(('x','x',s[2],s[3],0,0,0,0,s[8],0,s[10],s[11])); angsets[s[0]][s[1]]=angsets[s[0]].get(s[1],[])+[s]
 ang_rank = sorted(ang.items(), key=lambda x:-agg(x[1])['roas'])
 verdict_ang = {
- 'Pregunta retadora': 'Gana por retorno y por volumen. El conjunto de escala es el único que no se desgastó (frecuencia 2,54, CTR 2,21%) y la versión mediana a $123K/día sostiene 8,98.',
- 'Historia de consistencia': 'Se recuperó al salir del conjunto grande: la misma creatina de Jaime rinde 9,22 en el conjunto mediano y 5,21 en el de escala (frecuencia 5,05).',
+ 'Pregunta retadora': 'Gana por retorno y por volumen. El conjunto grande es el único que no se desgastó (frecuencia 2,54, CTR 2,21%) y el iso low a $123K/día sostiene 8,98.',
+ 'Historia de consistencia': 'Segundo por retorno gracias al conjunto iso low: la misma creatina de Jaime rinde 9,22 allí y 5,21 en el conjunto grande (frecuencia 5,05, saturado).',
  'Validadores profesionales': 'Yeyo solo va en 6,02; Alejandra (55% del gasto del ángulo) lo arrastra a 4,65. Es un problema de reparto, no del ángulo.',
- 'Rutina real': 'Cayó del segundo al último lugar: el conjunto de escala pasó de 5,60 a 4,62 con el CPM más caro de la campaña ($14.419) y dos videos flojos adentro.',
+ 'Rutina real': 'Último lugar: el conjunto grande rinde 4,62 con el CPM más caro de la campaña ($14.419) y dos videos flojos adentro (Rutina v1 de Natalia y Snack de Gabriela).',
 }
 ang_rows=''; ang_verdicts=''
 for i,(a,rows) in enumerate(ang_rank,1):
@@ -42,12 +42,12 @@ vagg={v:agg(rows) for v,rows in vid.items()}
 vid_rank=[v for v in sorted(vagg, key=lambda v:-vagg[v]['roas']) if vagg[v]['compras']>=10]
 vid_small=[v for v in vagg if vagg[v]['compras']<10]
 vnote = {
- 'exio_creatina': 'Casi todo en el conjunto mediano (16,08). Señal fuerte, muestra corta.',
- 'sammy_creatina_costosa': 'El mejor video con muestra sólida. Vive en el conjunto mediano.',
- 'luisa_rutina_v1': '10,63 en mediano, 3,25 en escala. Probar de nuevo en mediano.',
- 'natalia_rutina_v2': '11,15 en mediano, 5,96 en escala, 0,96 en la v2. Ganador que Meta subestimó.',
- 'yeyo_curiosidad': '12,64 en mediano con CPA $13.601, el más barato de la campaña.',
- 'yeyo_pregunta_frecuente': 'Sube a 9,05 en mediano; en escala cuesta $29.067 por compra.',
+ 'exio_creatina': 'Casi todo en el conjunto iso low (16,08). Señal fuerte, muestra corta.',
+ 'sammy_creatina_costosa': 'El mejor video con muestra sólida. Vive en el conjunto iso low.',
+ 'luisa_rutina_v1': '10,63 en iso low, 3,25 en el conjunto grande. Probar de nuevo en iso low.',
+ 'natalia_rutina_v2': '11,15 en iso low, 5,96 en el conjunto grande, 0,96 en la v2. Ganador que Meta subestimó.',
+ 'yeyo_curiosidad': '12,64 en iso low con CPA $13.601, el más barato de la campaña.',
+ 'yeyo_pregunta_frecuente': 'Sube a 9,05 en iso low; en el conjunto grande cuesta $29.067 por compra.',
  'gabriela_pregunta_v2': 'Mejor costo por compra entre los ganadores ($16.416). Corrió apagada y prendida.',
  'jaime_creatina_v1': 'El caballo de batalla: 21% del gasto y 170 compras. Fatigado a escala (frecuencia 5,05).',
  'david_creatina_v3': 'Correcto, sin muestra grande. Segunda opción de David.',
@@ -160,30 +160,30 @@ body = f'''<body>
         <section>
             <h2>Resumen en números</h2>
             <div class="kpi-chips">
-                <div class="chip"><b>{cop(TOTAL['spend'])}</b><span>Inversión total</span><em>+{mill(inc_s)} desde el 4 sep</em></div>
-                <div class="chip"><b>{TOTAL['compras']}</b><span>Compras</span><em>+{inc_c} desde el 4 sep</em></div>
-                <div class="chip"><b>{r2(TOTAL['roas'])}</b><span>ROAS de la campaña</span><em>Venía en 5,43</em></div>
-                <div class="chip"><b>{cop(TOTAL['cpa'])}</b><span>Costo por compra</span><em class="up">Venía en $21.532</em></div>
+                <div class="chip"><b>{cop(TOTAL['spend'])}</b><span>Inversión total</span></div>
+                <div class="chip"><b>{TOTAL['compras']}</b><span>Compras</span></div>
+                <div class="chip"><b>{r2(TOTAL['roas'])}</b><span>ROAS de la campaña</span></div>
+                <div class="chip"><b>{cop(TOTAL['cpa'])}</b><span>Costo por compra</span></div>
             </div>
-            <p style="margin-top:18px">La campaña casi duplicó la inversión desde el corte anterior y el retorno subió: lo invertido después del 4 de septiembre rindió <strong>ROAS {r2(inc_roas)}</strong>. La señal a corregir es el costo por compra, que subió un 16%. Y ese costo tiene una causa clara:</p>
+            <p style="margin-top:18px">Cada ángulo corre en dos tipos de conjunto de anuncios con los mismos videos: un <strong>conjunto grande</strong> de escala (presupuesto de $80K a $310K diarios) y un <strong>conjunto iso low</strong>, más pequeño (de $38K a $123K diarios), que nació como validación. Separarlos es lo que explica el costo por compra de la campaña:</p>
 
             <div class="split">
-                <div><div class="st">Conjuntos de escala · {E['share']:.0f}% del gasto</div><div class="sr">ROAS {r2(E['roas'])}</div><div class="sm">{cop(E['cpa'])} por compra · CPM {cop(cpm_e)} · presupuestos de $80K a $310K diarios</div></div>
-                <div class="hi"><div class="st">Conjuntos medianos ("iso low") · {L['share']:.0f}% del gasto</div><div class="sr">ROAS {r2(L['roas'])}</div><div class="sm">{cop(L['cpa'])} por compra · CPM {cop(cpm_l)} · presupuestos de $38K a $123K diarios</div></div>
+                <div><div class="st">Conjuntos grandes · {E['share']:.0f}% del gasto</div><div class="sr">ROAS {r2(E['roas'])}</div><div class="sm">{cop(E['cpa'])} por compra · CPM {cop(cpm_e)} · presupuestos de $80K a $310K diarios</div></div>
+                <div class="hi"><div class="st">Conjuntos iso low · {L['share']:.0f}% del gasto</div><div class="sr">ROAS {r2(L['roas'])}</div><div class="sm">{cop(L['cpa'])} por compra · CPM {cop(cpm_l)} · presupuestos de $38K a $123K diarios</div></div>
             </div>
             <div class="kpi-star" style="margin-top:14px">
                 <span class="kpi-star-tag">El hallazgo</span>
-                <span class="kpi-star-text">Con <b>los mismos videos</b>, los conjuntos medianos compran a <b>casi la mitad del CPM</b> y rinden <b>el doble de ROAS</b> que los conjuntos grandes. Con el {L['share']:.0f}% de la plata generaron el {100*L['val']/(E['val']+L['val']):.0f}% de las ventas. El problema de la campaña no es el contenido: es que el presupuesto está concentrado en pocos conjuntos grandes que se saturan.</span>
+                <span class="kpi-star-text">Con <b>los mismos videos</b>, los conjuntos iso low compran a <b>casi la mitad del CPM</b> y rinden <b>el doble de ROAS</b> que los conjuntos grandes. Con el {L['share']:.0f}% de la plata generaron el {100*L['val']/(E['val']+L['val']):.0f}% de las ventas. El problema de la campaña no es el contenido: es que el presupuesto está concentrado en pocos conjuntos grandes que se saturan.</span>
             </div>
         </section>
 
         <section>
             <h2>Ranking de ángulos</h2>
             <div class="rtable-wrap"><table class="rtable">
-                <thead><tr><th>Ángulo</th><th>Inversión</th><th>Compras</th><th>Costo / compra</th><th>ROAS escala</th><th>ROAS mediano</th><th>ROAS total</th></tr></thead>
+                <thead><tr><th>Ángulo</th><th>Inversión</th><th>Compras</th><th>Costo / compra</th><th>ROAS conjunto grande</th><th>ROAS conjunto iso low</th><th>ROAS total</th></tr></thead>
                 <tbody>{ang_rows}</tbody>
             </table></div>
-            <div class="rcap">ROAS total ponderado por inversión sumando los conjuntos de escala y medianos de cada ángulo. Verde ≥ 6, amarillo 5–6, rojo &lt; 5.</div>
+            <div class="rcap">ROAS total ponderado por inversión sumando el conjunto grande y el iso low de cada ángulo. En Pregunta retadora el conjunto grande incluye la v2. Verde ≥ 6, amarillo 5–6, rojo &lt; 5.</div>
             <ul class="inc" style="margin-top:20px">{ang_verdicts}</ul>
         </section>
 
@@ -211,21 +211,21 @@ body = f'''<body>
         <section>
             <h2>Qué hacer para seguir escalando</h2>
             <ol class="steps">
-                <li class="win"><b>Escalar en horizontal, no en vertical.</b> Dejar de subir presupuesto a conjuntos grandes. Montar conjuntos de $80K a $125K diarios, uno por video ganador, y crecer duplicando conjuntos, no presupuesto. La prueba ya existe: el conjunto mediano de Pregunta retadora corre a $123K/día y sostiene 8,98 con 92 compras. Regla: conjunto con frecuencia mayor a 4 se refresca o se apaga.</li>
+                <li class="win"><b>Escalar en horizontal, no en vertical.</b> Dejar de subir presupuesto a conjuntos grandes. Montar conjuntos de $80K a $125K diarios, uno por video ganador, y crecer duplicando conjuntos, no presupuesto. La prueba ya existe: el conjunto iso low de Pregunta retadora corre a $123K/día y sostiene 8,98 con 92 compras. Regla: conjunto con frecuencia mayor a 4 se refresca o se apaga.</li>
                 <li><b>Poner la plata en los cinco videos ganadores.</b> Creatina costosa (Sammy), Rutina v2 (Natalia), Pregunta v2 (Gabriela), Curiosidad y Pregunta frecuente (Yeyo). Hoy tienen el {gwin['share']:.0f}% del gasto y rinden {r2(gwin['roas'])} a {cop(gwin['cpa'])} por compra. Cada uno con su conjunto propio para que Meta no vuelva a concentrar la entrega en el video de mejor clic.</li>
                 <li><b>Apagar cinco videos.</b> Creatina de Alejandra (3,39), Rutina v1 de Natalia (3,64), Triatlón de Camila (3,75), Snack de Gabriela (3,92) y Creencias de Yeyo (4,25). Suman {cop(goff['spend'])} ({goff['share']:.0f}% del gasto) a ROAS {r2(goff['roas'])}. Esa misma plata en los ganadores serían unos {mill(uplift)} más en ventas.</li>
-                <li><b>Ponerle tope a los dos videos más caros.</b> "Pagar más" de David y "Proteína" de Alejandra son el 25% del gasto y rinden 5,15 y 5,17, por debajo del promedio. No se apagan ("Pagar más" tiene el mejor CTR y CPC de la campaña) pero ninguno vuelve a pasar del 10% del presupuesto. La creatina de Jaime sigue, pero en conjunto mediano: allí rinde 9,22 y a escala está en frecuencia 5,05.</li>
-                <li><b>Segunda tanda de contenido con los que ya vendieron.</b> Repiten Sammy, Natalia, Gabriela, Yeyo y Jaime (nueva versión de creatina: la v1 está agotada). Los hooks a replicar son Creatina costosa, Rutina v2 y Pregunta. Luisa y Exio se prueban en conjunto mediano antes de decidir (10,63 y 16,08 allí, pero con muestra corta). Alejandra y Camila no repiten. Del material en crudo pueden salir versiones nuevas sin producción adicional.</li>
+                <li><b>Ponerle tope a los dos videos más caros.</b> "Pagar más" de David y "Proteína" de Alejandra son el 25% del gasto y rinden 5,15 y 5,17, por debajo del promedio. No se apagan ("Pagar más" tiene el mejor CTR y CPC de la campaña) pero ninguno vuelve a pasar del 10% del presupuesto. La creatina de Jaime sigue, pero en conjunto iso low: allí rinde 9,22 y en el conjunto grande está en frecuencia 5,05.</li>
+                <li><b>Segunda tanda de contenido con los que ya vendieron.</b> Repiten Sammy, Natalia, Gabriela, Yeyo y Jaime (nueva versión de creatina: la v1 está agotada). Los hooks a replicar son Creatina costosa, Rutina v2 y Pregunta. Luisa y Exio se prueban en conjunto iso low antes de decidir (10,63 y 16,08 allí, pero con muestra corta). Alejandra y Camila no repiten. Del material en crudo pueden salir versiones nuevas sin producción adicional.</li>
             </ol>
             <div class="guarantee">
                 <span class="g-tag">En una frase</span>
-                <p>El contenido ya demostró que vende: <b>ROAS {r2(inc_roas)} en lo invertido del último ciclo</b>. Lo que frena el crecimiento es la estructura. Muchos conjuntos medianos con los videos ganadores, tope a los videos caros y una segunda tanda con los creadores que ya vendieron.</p>
+                <p>El contenido ya demostró que vende: <b>ROAS 5,86 con $19,7M invertidos</b>. Lo que frena el crecimiento es la estructura. Muchos conjuntos iso low con los videos ganadores, tope a los videos caros y una segunda tanda con los creadores que ya vendieron.</p>
             </div>
         </section>
 
         <div class="next">
             <h2>Siguiente paso</h2>
-            <p>Sobre la mesa en la próxima revisión con el equipo de pauta: <b>aprobar la reestructura a conjuntos medianos</b>, definir el presupuesto de la segunda tanda de contenido y cruzar estos números con el reporte de Shopify. Todos los datos de este informe vienen de Meta Ads; la decisión final se toma contra el costo por compra real de la tienda.</p>
+            <p>Sobre la mesa en la próxima revisión con el equipo de pauta: <b>aprobar la reestructura a conjuntos iso low</b>, definir el presupuesto de la segunda tanda de contenido y cruzar estos números con el reporte de Shopify. Todos los datos de este informe vienen de Meta Ads; la decisión final se toma contra el costo por compra real de la tienda.</p>
             <a class="cta" href="https://wa.me/573043148428?text=Hola%20Juanfe%2C%20tengo%20una%20duda%20sobre%20el%20an%C3%A1lisis%20de%20la%20campa%C3%B1a%20UGC" target="_blank">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 ¿Dudas? Escríbenos
