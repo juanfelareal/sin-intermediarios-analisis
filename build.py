@@ -1,4 +1,5 @@
-from data import *
+import importlib.util, sys
+_spec = importlib.util.spec_from_file_location("data", "datos-corte-2026-09-21.py"); _m = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_m); globals().update({k:v for k,v in vars(_m).items() if not k.startswith("_")})
 from collections import defaultdict
 import re
 
