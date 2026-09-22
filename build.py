@@ -122,7 +122,7 @@ vcards=''
 for v in TOP_VIDEOS:
     g=vagg[v]; t,c,a=VIDEOS[v]; f=f'videos/{v}.mp4'
     if os.path.exists(f):
-        media=f'<video controls playsinline preload="metadata" src="{f}"></video>'
+        media=f'<video controls playsinline preload="metadata" poster="{f[:-4]}.jpg" src="{f}"></video>'
     else:
         media=f'<div class="vph">{PH_SVG}<span>Video pendiente</span></div>'
     vcards += f'''<div class="vcard">
@@ -146,8 +146,8 @@ cnote = {
 }
 ccards=''
 for c in TOP_CREATORS:
-    g=cagg[c]; f=f'videos/creador_{cslug[c]}.mp4'
-    media = f'<video controls playsinline preload="metadata" src="{f}"></video>' if os.path.exists(f) else f'<div class="vph">{PH_SVG}<span>Video pendiente</span></div>'
+    g=cagg[c]; f=f'videos/{cbest[c]}.mp4'
+    media = f'<video controls playsinline preload="metadata" poster="{f[:-4]}.jpg" src="{f}"></video>' if os.path.exists(f) else f'<div class="vph">{PH_SVG}<span>Video pendiente</span></div>'
     bv=VIDEOS[cbest[c]][0]; bg=vagg[cbest[c]]
     ccards += f'''<div class="ccard">
   <div class="vmedia">{media}</div>
