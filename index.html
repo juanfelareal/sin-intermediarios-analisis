@@ -6,7 +6,7 @@
     <title>Sin Intermediarios — Análisis de campaña UGC | LA REAL</title>
 
     <meta property="og:title" content="Sin Intermediarios — Análisis de campaña UGC | LA REAL">
-    <meta property="og:description" content="Resultados por ángulo de la campaña de contenido UGC: 511 compras con ROAS 5,43 y qué decidimos con cada ángulo.">
+    <meta property="og:description" content="Resultados por ángulo de la campaña de contenido UGC: 791 compras con ROAS 5,86. Ranking de ángulos, videos y creadores, y qué hacer para seguir escalando.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://juanfelareal.github.io/sin-intermediarios-analisis/">
     <meta property="og:image" content="https://juanfelareal.github.io/sin-intermediarios-analisis/og-image.png">
@@ -146,6 +146,78 @@
             .cta { display: none; }
             section { break-inside: avoid; }
         }
+
+        .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; transform:translateY(-1px); }
+        .dot.ok, .bar i.ok { background: var(--green); } .dot.mid { background:#f59e0b; } .dot.bad { background:#dc2626; }
+        .rtable td small { display:block; font-size:11px; color:#9ca3af; font-weight:600; }
+        .rtable .vrow td { text-align:left; white-space:normal; font-size:13px; color:#6b7280; padding:0 14px 14px 31px; border-bottom:1px solid var(--line); }
+        .rtable .vn { text-align:left; white-space:normal; font-size:12.5px; color:#6b7280; min-width:260px; line-height:1.4; }
+        .rtable .ad small { text-transform:none; letter-spacing:0; }
+        .rank-name em { font-style:normal; font-size:10px; font-weight:700; color:#b45309; background:#fef3c7; border-radius:50px; padding:2px 8px; margin-left:6px; vertical-align:middle; }
+        .steps { list-style:none; display:grid; gap:12px; counter-reset: s; }
+        .steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 20px 64px; position:relative; font-size:15px; color:#4b5563; line-height:1.55; }
+        .steps li::before { counter-increment:s; content: counter(s); position:absolute; left:20px; top:18px; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+        .steps li b { display:block; color:var(--ink); font-size:16.5px; font-weight:800; letter-spacing:-0.3px; margin-bottom:6px; }
+        .steps li.win { border:1.5px solid var(--green); }
+        .kpi-chips { grid-template-columns: repeat(4,1fr); }
+        .chip em { display:block; font-style:normal; font-size:11.5px; font-weight:700; margin-top:6px; color:var(--green); }
+        .chip em.up { color:#dc2626; }
+        .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+        .split > div { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+        .split > div.hi { border:1.5px solid var(--green); }
+        .split .st { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+        .split .sr { font-size:36px; font-weight:900; letter-spacing:-1.5px; line-height:1; color:var(--ink); }
+        .split .hi .sr { color:var(--green); }
+        .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
+        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+
+        .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; transform:translateY(-1px); }
+        .dot.ok, .bar i.ok { background: var(--green); } .dot.mid { background:#f59e0b; } .dot.bad { background:#dc2626; }
+        .rtable td small { display:block; font-size:11px; color:#9ca3af; font-weight:600; }
+        .rtable .vrow td { text-align:left; white-space:normal; font-size:13px; color:#6b7280; padding:0 14px 14px 31px; border-bottom:1px solid var(--line); }
+        .rtable .vn { text-align:left; white-space:normal; font-size:12.5px; color:#6b7280; min-width:260px; line-height:1.4; }
+        .rtable .ad small { text-transform:none; letter-spacing:0; }
+        .rank-name em { font-style:normal; font-size:10px; font-weight:700; color:#b45309; background:#fef3c7; border-radius:50px; padding:2px 8px; margin-left:6px; vertical-align:middle; }
+        .steps { list-style:none; display:grid; gap:12px; counter-reset: s; }
+        .steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 20px 64px; position:relative; font-size:15px; color:#4b5563; line-height:1.55; }
+        .steps li::before { counter-increment:s; content: counter(s); position:absolute; left:20px; top:18px; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+        .steps li b { display:block; color:var(--ink); font-size:16.5px; font-weight:800; letter-spacing:-0.3px; margin-bottom:6px; }
+        .steps li.win { border:1.5px solid var(--green); }
+        .kpi-chips { grid-template-columns: repeat(4,1fr); }
+        .chip em { display:block; font-style:normal; font-size:11.5px; font-weight:700; margin-top:6px; color:var(--green); }
+        .chip em.up { color:#dc2626; }
+        .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+        .split > div { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+        .split > div.hi { border:1.5px solid var(--green); }
+        .split .st { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+        .split .sr { font-size:36px; font-weight:900; letter-spacing:-1.5px; line-height:1; color:var(--ink); }
+        .split .hi .sr { color:var(--green); }
+        .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
+        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+
+        .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; transform:translateY(-1px); }
+        .dot.ok, .bar i.ok { background: var(--green); } .dot.mid { background:#f59e0b; } .dot.bad { background:#dc2626; }
+        .rtable td small { display:block; font-size:11px; color:#9ca3af; font-weight:600; }
+        .rtable .vrow td { text-align:left; white-space:normal; font-size:13px; color:#6b7280; padding:0 14px 14px 31px; border-bottom:1px solid var(--line); }
+        .rtable .vn { text-align:left; white-space:normal; font-size:12.5px; color:#6b7280; min-width:260px; line-height:1.4; }
+        .rtable .ad small { text-transform:none; letter-spacing:0; }
+        .rank-name em { font-style:normal; font-size:10px; font-weight:700; color:#b45309; background:#fef3c7; border-radius:50px; padding:2px 8px; margin-left:6px; vertical-align:middle; }
+        .steps { list-style:none; display:grid; gap:12px; counter-reset: s; }
+        .steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 20px 64px; position:relative; font-size:15px; color:#4b5563; line-height:1.55; }
+        .steps li::before { counter-increment:s; content: counter(s); position:absolute; left:20px; top:18px; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+        .steps li b { display:block; color:var(--ink); font-size:16.5px; font-weight:800; letter-spacing:-0.3px; margin-bottom:6px; }
+        .steps li.win { border:1.5px solid var(--green); }
+        .kpi-chips { grid-template-columns: repeat(4,1fr); }
+        .chip em { display:block; font-style:normal; font-size:11.5px; font-weight:700; margin-top:6px; color:var(--green); }
+        .chip em.up { color:#dc2626; }
+        .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+        .split > div { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+        .split > div.hi { border:1.5px solid var(--green); }
+        .split .st { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+        .split .sr { font-size:36px; font-weight:900; letter-spacing:-1.5px; line-height:1; color:var(--ink); }
+        .split .hi .sr { color:var(--green); }
+        .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
+        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
     </style>
 </head>
 <body>
@@ -157,336 +229,175 @@
                 <span style="color:#cbd5e1;font-weight:300;">&times;</span>
                 <img class="lareal" src="logo-la-real.png" alt="LA REAL">
             </div>
-            <div class="doc-meta">Análisis · Campaña UGC<br>Septiembre 2026</div>
+            <div class="doc-meta">Análisis · Campaña UGC<br>Corte 21 de septiembre 2026</div>
         </header>
 
         <div class="eyebrow">Informe de resultados</div>
-        <h1>Análisis de la campaña UGC: qué dio cada ángulo</h1>
-        <p class="lede">En la propuesta acordamos medir el contenido por ángulo y decidir con datos, no con opinión. Este es el corte al 4 de septiembre de 2026 del histórico completo de la campaña (datos de Meta Ads), revisado en la llamada de seguimiento con Sin Intermediarios y el equipo de pauta — incluye la lectura por ángulo, por creador y los acuerdos que salieron de esa revisión.</p>
+        <h1>Qué escalar, qué apagar y cómo seguir creciendo</h1>
+        <p class="lede">Corte al 21 de septiembre del histórico completo de la campaña UGC en Meta Ads. Tres rankings (ángulo, video, creador) y cinco decisiones para el siguiente ciclo.</p>
 
-        <!-- ===== RESUMEN EN NÚMEROS ===== -->
         <section>
             <h2>Resumen en números</h2>
-            <div class="kpi-star">
-                <span class="kpi-star-tag">Resultado global</span>
-                <span class="kpi-star-text">La campaña generó <b>511 compras</b> con una inversión de <b>$11.002.725</b> y un <b>ROAS de 5,43</b> — aprox. <b>$59,7M</b> en ventas atribuidas. Los cuatro ángulos compraron; ninguno quedó por debajo de ROAS 4.</span>
-            </div>
-            <div class="sublabel">Métricas de la cuenta</div>
             <div class="kpi-chips">
-                <div class="chip"><b>$21.532</b><span>Costo por compra promedio</span></div>
-                <div class="chip"><b>1,84%</b><span>CTR promedio (1.061.355 impresiones)</span></div>
-                <div class="chip"><b>$565</b><span>CPC promedio (13.932 clics)</span></div>
+                <div class="chip"><b>$19.713.601</b><span>Inversión total</span><em>+$8,7M desde el 4 sep</em></div>
+                <div class="chip"><b>791</b><span>Compras</span><em>+280 desde el 4 sep</em></div>
+                <div class="chip"><b>5,86</b><span>ROAS de la campaña</span><em>Venía en 5,43</em></div>
+                <div class="chip"><b>$24.922</b><span>Costo por compra</span><em class="up">Venía en $21.532</em></div>
             </div>
-            <p class="note" style="margin-top:18px;">Dos aclaraciones de la llamada de seguimiento: <strong>(1)</strong> todos los datos de este informe vienen de Meta Ads; el equipo de pauta está armando el cruce con Shopify y, en la primera revisión conjunta, ambas fuentes van alineadas. <strong>(2)</strong> Desde que se activó esta estructura, el <strong>CAC general de la cuenta saltó de ~US$22 a ~US$31</strong> en el mes — por eso el criterio de este ciclo es doble: escalar lo que funciona y recortar lo que no, cuidando el costo por compra tanto como el ROAS.</p>
-        </section>
+            <p style="margin-top:18px">La campaña casi duplicó la inversión desde el corte anterior y el retorno subió: lo invertido después del 4 de septiembre rindió <strong>ROAS 6,40</strong>. La señal a corregir es el costo por compra, que subió un 16%. Y ese costo tiene una causa clara:</p>
 
-        <!-- ===== CONTEXTO ===== -->
-        <section>
-            <h2>Contexto</h2>
-            <p>El plan que acordamos con <span class="brand">Sin Intermediarios</span> era escalar la inversión en Meta sin perder rentabilidad, alimentando la cuenta con contenido UGC medido por ángulo. Del brief conjunto salieron <strong>cuatro ángulos a probar</strong>: rutina real, validadores profesionales, historia de consistencia y pregunta retadora.</p>
-            <p>Cada ángulo corrió en dos niveles: un <strong>conjunto principal de escala</strong> (presupuestos de $155.000–$310.000 diarios) y una <strong>versión de validación de bajo presupuesto</strong> (los conjuntos "iso low", $38.000–$153.000 diarios). Además se probó una segunda versión del ángulo pregunta retadora.</p>
-            <p class="note">La meta del Mes 1 de la propuesta era encontrar <strong>2–3 combinaciones ganadoras</strong> que igualaran o superaran el ROAS de la cuenta. Con los cuatro ángulos comprando entre ROAS 4,9 y 5,7 a escala, esa meta se cumplió.</p>
-        </section>
-
-        <!-- ===== TABLA DE RESULTADOS ===== -->
-        <section>
-            <h2>Resultados por conjunto</h2>
-            <p>Cada fila es un conjunto de anuncios de la campaña. El valor generado se estima como inversión &times; ROAS reportado por Meta.</p>
-            <div class="rtable-wrap">
-                <table class="rtable">
-                    <thead><tr><th>Ángulo (conjunto)</th><th>Inversión</th><th>Compras</th><th>Costo / compra</th><th>CTR</th><th>Valor generado</th><th>ROAS</th></tr></thead>
-                    <tbody>
-                        <tr class="grp"><td colspan="7">Conjuntos de escala</td></tr>
-                        <tr><td class="ad">Pregunta retadora <small>Activo</small></td><td>$2.297.643</td><td>106</td><td>$21.676</td><td>2,26%</td><td>≈ $13.074.000</td><td class="roas">5,69</td></tr>
-                        <tr><td class="ad">Rutina real <small>Activo</small></td><td>$1.646.366</td><td>94</td><td>$17.515</td><td>2,13%</td><td>≈ $9.220.000</td><td class="roas">5,60</td></tr>
-                        <tr><td class="ad">Validadores profesionales <small>Activo</small></td><td>$2.453.901</td><td>110</td><td>$22.308</td><td>1,67%</td><td>≈ $12.760.000</td><td class="roas">5,20</td></tr>
-                        <tr><td class="ad">Historia de consistencia <small>Activo</small></td><td>$2.792.368</td><td>115</td><td>$24.281</td><td>1,53%</td><td>≈ $13.571.000</td><td class="roas">4,86</td></tr>
-                        <tr><td class="ad">Pregunta retadora v2 <small>Apagado</small></td><td>$651.618</td><td>34</td><td>$19.165</td><td>1,62%</td><td>≈ $2.867.000</td><td class="roas">4,40</td></tr>
-                        <tr class="grp"><td colspan="7">Conjuntos de validación (low)</td></tr>
-                        <tr><td class="ad">Validadores (iso low)</td><td>$201.892</td><td>12</td><td>$16.824</td><td>1,29%</td><td>≈ $2.534.000</td><td class="roas">12,55</td></tr>
-                        <tr><td class="ad">Rutina real (iso low)</td><td>$103.165</td><td>5</td><td>$20.633</td><td>1,38%</td><td>≈ $1.165.000</td><td class="roas">11,29</td></tr>
-                        <tr><td class="ad">Pregunta retadora (iso low)</td><td>$420.712</td><td>18</td><td>$23.373</td><td>1,72%</td><td>≈ $2.394.000</td><td class="roas">5,69</td></tr>
-                        <tr><td class="ad">Historia consistencia (iso low)</td><td>$435.060</td><td>17</td><td>$25.592</td><td>1,91%</td><td>≈ $2.136.000</td><td class="roas">4,91</td></tr>
-                    </tbody>
-                    <tfoot><tr><td>Total campaña</td><td>$11.002.725</td><td>511</td><td>$21.532</td><td>1,84%</td><td>≈ $59.745.000</td><td class="roas">5,43</td></tr></tfoot>
-                </table>
+            <div class="split">
+                <div><div class="st">Conjuntos de escala · 80% del gasto</div><div class="sr">ROAS 4,94</div><div class="sm">$26.605 por compra · CPM $11.349 · presupuestos de $80K a $310K diarios</div></div>
+                <div class="hi"><div class="st">Conjuntos medianos ("iso low") · 20% del gasto</div><div class="sr">ROAS 9,61</div><div class="sm">$19.714 por compra · CPM $6.842 · presupuestos de $38K a $123K diarios</div></div>
             </div>
-            <p class="rcap">Cifras en COP. Corte: 4 de septiembre de 2026, histórico completo de la campaña. Los conjuntos de validación tienen muestras pequeñas: su ROAS es una señal, no una conclusión.</p>
-        </section>
-
-        <!-- ===== LECTURA POR ÁNGULO ===== -->
-        <section>
-            <h2>Lectura por ángulo</h2>
-            <div class="pillars">
-                <div class="pillar win">
-                    <div class="pillar-n">PREGUNTA RETADORA</div>
-                    <div class="pillar-t">Ahora lidera: mejor ROAS y mejor hook</div>
-                    <div class="pillar-kpis"><span class="pk">ROAS <em>5,69</em></span><span class="pk">CTR 2,26%</span><span class="pk">CPC $408</span></div>
-                    <p>Subió de 5,45 a 5,69 entre cortes y sostiene el mejor CTR y el clic más barato de la campaña. Sigue el matiz de concentración: el grueso del gasto está en "Pagar más" (David Ruiz, 5,16) y el promedio lo sube la pieza "Pregunta" de Gabriela Schiappa (9,29) — la reasignación interna sigue pendiente. La v2 del ángulo quedó en 4,40 y se apagó.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-n">RUTINA REAL</div>
-                    <div class="pillar-t">El costo por compra más bajo, con leve desgaste</div>
-                    <div class="pillar-kpis"><span class="pk">ROAS <em>5,60</em></span><span class="pk">$17.515 / compra</span><span class="pk">Frecuencia 3,17</span></div>
-                    <p>Sigue siendo el conjunto que compra más barato a escala y el más parejo entre piezas, con <strong>"Prioridad alimenticia" de Sammy Cáceres</strong> a la cabeza (6,43 con CTR 2,71% — el mejor hook de la campaña). Ojo a la tendencia: bajó de 6,23 a 5,60 entre cortes con la frecuencia subiendo — normal al escalar, pero pide piezas nuevas para sostener el ritmo.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-n">HISTORIA DE CONSISTENCIA</div>
-                    <div class="pillar-t">En caída: el desgaste se aceleró</div>
-                    <div class="pillar-kpis"><span class="pk">ROAS <em>4,86</em></span><span class="pk">Frecuencia 4,49</span><span class="pk">CTR 1,53%</span></div>
-                    <p>Entre el corte del 2 y el del 4 de septiembre pasó de 5,15 a 4,86 mientras la frecuencia subió de 4,13 a 4,49: la audiencia está saturada de las mismas piezas y el retorno cae con cada día. Es el único conjunto de escala por debajo del promedio. La validación mejoró (de 3,12 a 4,91), pero el 71% del gasto sigue en una sola pieza — la creatina de Jaime, con frecuencia 4,26 — y el ángulo necesita creadores nuevos ya.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-n">VALIDADORES PROFESIONALES</div>
-                    <div class="pillar-t">Estable, y la señal de validación se confirma</div>
-                    <div class="pillar-kpis"><span class="pk">ROAS <em>5,20</em></span><span class="pk">110 compras</span><span class="pk">iso low: ROAS 12,55</span></div>
-                    <p>Mejoró levemente a escala (5,11 → 5,20) y su versión de validación sostiene 12,55 ya con 12 compras. Pero la dispersión interna es de <strong>creador</strong>: Yeyo Agudelo (entrenador) rinde 7,49 con solo el 12% del gasto del conjunto, mientras las piezas de Alejandra Barragán (nutricionista) van en 4,94 y 3,97 concentrando el 79%. Reasignar entre creadores mejora el promedio sin plata nueva.</p>
-                </div>
+            <div class="kpi-star" style="margin-top:14px">
+                <span class="kpi-star-tag">El hallazgo</span>
+                <span class="kpi-star-text">Con <b>los mismos videos</b>, los conjuntos medianos compran a <b>casi la mitad del CPM</b> y rinden <b>el doble de ROAS</b> que los conjuntos grandes. Con el 20% de la plata generaron el 32% de las ventas. El problema de la campaña no es el contenido: es que el presupuesto está concentrado en pocos conjuntos grandes que se saturan.</span>
             </div>
         </section>
 
-        <!-- ===== RANKING DE CREADORES ===== -->
+        <section>
+            <h2>Ranking de ángulos</h2>
+            <div class="rtable-wrap"><table class="rtable">
+                <thead><tr><th>Ángulo</th><th>Inversión</th><th>Compras</th><th>Costo / compra</th><th>ROAS escala</th><th>ROAS mediano</th><th>ROAS total</th></tr></thead>
+                <tbody><tr><td class="ad"><span class="dot ok"></span>1. Pregunta retadora</td><td>$6.115.357<small>31% del gasto</small></td><td>264</td><td>$23.164</td><td>5,29<small>172 compras</small></td><td>8,98<small>92 compras</small></td><td class="roas">6,46</td></tr><tr><td class="ad"><span class="dot ok"></span>2. Historia de consistencia</td><td>$5.198.320<small>26% del gasto</small></td><td>217</td><td>$23.955</td><td>5,17<small>152 compras</small></td><td>10,09<small>65 compras</small></td><td class="roas">6,23</td></tr><tr><td class="ad"><span class="dot mid"></span>3. Validadores profesionales</td><td>$4.963.787<small>25% del gasto</small></td><td>179</td><td>$27.731</td><td>4,63<small>151 compras</small></td><td>10,37<small>28 compras</small></td><td class="roas">5,27</td></tr><tr><td class="ad"><span class="dot mid"></span>4. Rutina real</td><td>$3.436.137<small>17% del gasto</small></td><td>132</td><td>$26.031</td><td>4,62<small>120 compras</small></td><td>10,63<small>12 compras</small></td><td class="roas">5,10</td></tr></tbody>
+            </table></div>
+            <div class="rcap">ROAS total ponderado por inversión sumando los conjuntos de escala y medianos de cada ángulo. Verde ≥ 6, amarillo 5–6, rojo &lt; 5.</div>
+            <ul class="inc" style="margin-top:20px"><li><b>Pregunta retadora.</b> Gana por retorno y por volumen. El conjunto de escala es el único que no se desgastó (frecuencia 2,54, CTR 2,21%) y la versión mediana a $123K/día sostiene 8,98.</li><li><b>Historia de consistencia.</b> Se recuperó al salir del conjunto grande: la misma creatina de Jaime rinde 9,22 en el conjunto mediano y 5,21 en el de escala (frecuencia 5,05).</li><li><b>Validadores profesionales.</b> Yeyo solo va en 6,02; Alejandra (55% del gasto del ángulo) lo arrastra a 4,65. Es un problema de reparto, no del ángulo.</li><li><b>Rutina real.</b> Cayó del segundo al último lugar: el conjunto de escala pasó de 5,60 a 4,62 con el CPM más caro de la campaña ($14.419) y dos videos flojos adentro.</li></ul>
+        </section>
+
+        <section>
+            <h2>Ranking de videos</h2>
+            <p>Cada video sumando todos los conjuntos donde corrió. Ranking por ROAS entre los videos con 20 compras o más; abajo, las señales con muestra corta.</p>
+            <div class="rtable-wrap"><table class="rtable">
+                <thead><tr><th>Video</th><th>Inversión</th><th>Compras</th><th>Costo / compra</th><th>ROAS</th><th>Lectura</th></tr></thead>
+                <tbody><tr><td class="ad"><span class="dot ok"></span>1. Creatina costosa<small>Sammy Cáceres · Pregunta retadora</small></td><td>$1.125.969<small>5,7% del gasto</small></td><td>51</td><td>$22.078</td><td class="roas">8,68</td><td class="vn">El mejor video con muestra sólida. Vive en el conjunto mediano.</td></tr><tr><td class="ad"><span class="dot ok"></span>2. Rutina v2<small>Natalia Múnera · Pregunta retadora</small></td><td>$826.849<small>4,2% del gasto</small></td><td>39</td><td>$21.201</td><td class="roas">8,04</td><td class="vn">11,15 en mediano, 5,96 en escala, 0,96 en la v2. Ganador que Meta subestimó.</td></tr><tr><td class="ad"><span class="dot ok"></span>3. Curiosidad<small>Yeyo Agudelo · Validadores profesionales</small></td><td>$599.226<small>3,0% del gasto</small></td><td>28</td><td>$21.401</td><td class="roas">7,20</td><td class="vn">12,64 en mediano con CPA $13.601, el más barato de la campaña.</td></tr><tr><td class="ad"><span class="dot ok"></span>4. Pregunta frecuente<small>Yeyo Agudelo · Validadores profesionales</small></td><td>$962.940<small>4,9% del gasto</small></td><td>34</td><td>$28.322</td><td class="roas">6,55</td><td class="vn">Sube a 9,05 en mediano; en escala cuesta $29.067 por compra.</td></tr><tr><td class="ad"><span class="dot ok"></span>5. Pregunta v2<small>Gabriela Schiappa · Pregunta retadora</small></td><td>$722.319<small>3,7% del gasto</small></td><td>44</td><td>$16.416</td><td class="roas">6,54</td><td class="vn">Mejor costo por compra entre los ganadores ($16.416). Corrió apagada y prendida.</td></tr><tr><td class="ad"><span class="dot ok"></span>6. Creatina v1<small>Jaime · Historia de consistencia</small></td><td>$4.111.354<small>20,9% del gasto</small></td><td>170</td><td>$24.184</td><td class="roas">6,29</td><td class="vn">El caballo de batalla: 21% del gasto y 170 compras. Fatigado a escala (frecuencia 5,05).</td></tr><tr><td class="ad"><span class="dot mid"></span>7. Creatina v3<small>David Ruiz · Pregunta retadora</small></td><td>$428.181<small>2,2% del gasto</small></td><td>20</td><td>$21.409</td><td class="roas">5,65</td><td class="vn">Correcto, sin muestra grande. Segunda opción de David.</td></tr><tr><td class="ad"><span class="dot mid"></span>8. Prioridad alimenticia<small>Sammy Cáceres · Rutina real</small></td><td>$1.095.487<small>5,6% del gasto</small></td><td>46</td><td>$23.815</td><td class="roas">5,52</td><td class="vn">Mejor CTR de la campaña (2,78%). Solo ha corrido en el conjunto caro de Rutina.</td></tr><tr><td class="ad"><span class="dot mid"></span>9. Recetas v2<small>Camila Vélez · Rutina real</small></td><td>$498.702<small>2,5% del gasto</small></td><td>23</td><td>$21.683</td><td class="roas">5,52</td><td class="vn">El único video de Camila sobre el promedio del ángulo. Está apagado.</td></tr><tr><td class="ad"><span class="dot mid"></span>10. Proteína<small>Alejandra Barragán · Validadores profesionales</small></td><td>$1.924.984<small>9,8% del gasto</small></td><td>64</td><td>$30.078</td><td class="roas">5,17</td><td class="vn">10% del gasto a ROAS 5,17 y $30.078 por compra: cara por conversión.</td></tr><tr><td class="ad"><span class="dot mid"></span>11. Pagar más por marca<small>David Ruiz · Pregunta retadora</small></td><td>$2.955.446<small>15,0% del gasto</small></td><td>106</td><td>$27.882</td><td class="roas">5,15</td><td class="vn">15% del gasto, el más grande. Mejor CTR (2,31%) y CPC ($423) pero convierte a $27.882.</td></tr><tr><td class="ad"><span class="dot bad"></span>12. Creencias<small>Yeyo Agudelo · Validadores profesionales</small></td><td>$690.221<small>3,5% del gasto</small></td><td>24</td><td>$28.759</td><td class="roas">4,25</td><td class="vn">El único Yeyo por debajo de 5. Reemplazarlo por Curiosidad.</td></tr><tr><td class="ad"><span class="dot bad"></span>13. Snack v3<small>Gabriela Schiappa · Rutina real</small></td><td>$575.553<small>2,9% del gasto</small></td><td>21</td><td>$27.407</td><td class="roas">3,92</td><td class="vn">Apagar. La fuerza de Gabriela está en Pregunta, no en Snack.</td></tr><tr><td class="ad"><span class="dot bad"></span>14. Rutina v1<small>Natalia Múnera · Rutina real</small></td><td>$889.687<small>4,5% del gasto</small></td><td>24</td><td>$37.070</td><td class="roas">3,64</td><td class="vn">Apagar. $37.070 por compra, el peor de la campaña con muestra.</td></tr><tr><td class="ad"><span class="dot bad"></span>15. Creatina<small>Alejandra Barragán · Validadores profesionales</small></td><td>$786.416<small>4,0% del gasto</small></td><td>29</td><td>$27.118</td><td class="roas">3,39</td><td class="vn">Apagar. El ROAS más bajo con muestra sólida.</td></tr><tr class="grp"><td colspan="6">Señales con muestra corta (10 a 19 compras)</td></tr><tr><td class="ad"><span class="dot ok"></span>Creatina<small>Exio · Historia de consistencia</small></td><td>$246.173<small>1,2% del gasto</small></td><td>15</td><td>$16.412</td><td class="roas">12,36</td><td class="vn">Casi todo en el conjunto mediano (16,08). Señal fuerte, muestra corta.</td></tr><tr><td class="ad"><span class="dot ok"></span>Rutina v1<small>Luisa Méndez · Rutina real</small></td><td>$376.708<small>1,9% del gasto</small></td><td>17</td><td>$22.159</td><td class="roas">8,58</td><td class="vn">10,63 en mediano, 3,25 en escala. Probar de nuevo en mediano.</td></tr><tr><td class="ad"><span class="dot mid"></span>Montaña v1<small>Camila Vélez · Historia de consistencia</small></td><td>$171.424<small>0,9% del gasto</small></td><td>12</td><td>$14.285</td><td class="roas">5,36</td><td class="vn">Barato ($14.061/compra) pero sin escala.</td></tr><tr><td class="ad"><span class="dot bad"></span>Triatlón ajuste<small>Camila Vélez · Historia de consistencia</small></td><td>$505.421<small>2,6% del gasto</small></td><td>15</td><td>$33.695</td><td class="roas">3,75</td><td class="vn">Apagar. CTR 1,05% y $33.695 por compra.</td></tr></tbody>
+            </table></div>
+            <div class="rcap">Sin muestra suficiente: Error deportista de Jaime Cobos (13,46, 3 compras); Proteína de Exio (4,06, 5 compras).</div>
+        </section>
+
         <section>
             <h2>Ranking de creadores</h2>
-            <p>Sumando todas las piezas de cada creador en todos los conjuntos donde corrió. La barra verde es el retorno; la barra oscura, cuánta plata tiene hoy — verlas juntas cuenta la historia:</p>
-            <div class="rank">
-                <div class="rank-row">
-                    <div class="rank-name">Yeyo Agudelo<small>Entrenador · Validadores</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>8,78</b></div>
-                        <div class="bar"><i style="width:100%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>6%</b></div>
-                        <div class="bar spend"><i style="width:30%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>45 compras</b>$15.812 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Sammy Cáceres<small>Rutina real · Pregunta ret.</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>6,26</b></div>
-                        <div class="bar"><i style="width:71%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>7%</b></div>
-                        <div class="bar spend"><i style="width:32%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>43 compras</b>$17.337 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Gabriela Schiappa<small>Pregunta ret. · Rutina real</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>5,98</b></div>
-                        <div class="bar"><i style="width:68%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>9%</b></div>
-                        <div class="bar spend"><i style="width:41%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>57 compras</b>$16.931 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Natalia Múnera<small>Rutina real · Pregunta ret.</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>5,76</b></div>
-                        <div class="bar"><i style="width:66%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>6%</b></div>
-                        <div class="bar spend"><i style="width:28%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>33 compras</b>$19.839 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">David Ruiz<small>Pregunta retadora</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>5,16</b></div>
-                        <div class="bar"><i class="mid" style="width:59%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>20%</b></div>
-                        <div class="bar spend"><i style="width:91%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>93 compras</b>$23.115 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Jaime<small>Historia de consistencia</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>5,07</b></div>
-                        <div class="bar"><i class="mid" style="width:58%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>22%</b></div>
-                        <div class="bar spend"><i style="width:100%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>97 compras</b>$24.441 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Camila Vélez<small>Rutina real · Historia</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>4,75</b></div>
-                        <div class="bar"><i class="mid" style="width:54%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>9%</b></div>
-                        <div class="bar spend"><i style="width:40%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>46 compras</b>$20.393 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Alejandra Barragán<small>Nutricionista · Validadores</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>4,66</b></div>
-                        <div class="bar"><i class="mid" style="width:53%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>18%</b></div>
-                        <div class="bar spend"><i style="width:82%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>76 compras</b>$25.582 / compra</div>
-                </div>
-                <div class="rank-row">
-                    <div class="rank-name">Exio<small>Historia de consistencia</small></div>
-                    <div>
-                        <div class="bar-label"><span>ROAS ponderado</span><b>3,79</b></div>
-                        <div class="bar"><i class="bad" style="width:43%"></i></div>
-                        <div class="bar-label"><span>% del gasto total</span><b>3%</b></div>
-                        <div class="bar spend"><i style="width:13%"></i></div>
-                    </div>
-                    <div class="rank-kpis"><b>9 compras</b>$33.160 / compra</div>
-                </div>
-            </div>
-            <p class="rcap">ROAS ponderado por inversión, estimado desde el ROAS de cada pieza. Luisa Méndez queda fuera por muestra chica: voló en validación (11,29 con 5 compras) pero a escala no repitió (4,18) y está apagada.</p>
-            <p class="rcap">¿Por qué Meta concentra la plata en David y Jaime pese al ranking? La plataforma reparte entrega según señales de enganche y costo por clic, no según el retorno: "Pagar más" de David tiene el mejor CPC de la campaña ($383) y CTR 2,36%, y la creatina de Jaime también clickea barato ($664) — enganchan barato aunque conviertan más caro, y el algoritmo los premia. Por eso el rebalanceo hacia los creadores verdes hay que forzarlo con estructura, no esperarlo del algoritmo.</p>
-            <div class="kpi-star" style="margin-top:18px;">
-                <span class="kpi-star-tag">El hallazgo</span>
-                <span class="kpi-star-text">La inversión está repartida casi al revés del ranking: los tres mejores creadores — <b>Yeyo, Sammy y Gabriela</b> — tienen solo el <b>22% del gasto</b>, mientras David Ruiz, Jaime y Alejandra concentran el <b>59%</b> con ROAS entre 4,7 y 5,2. Alinear el presupuesto con el ranking es la mayor oportunidad de la campaña.</span>
+            <p>Todas las piezas de cada creador en todos los conjuntos, con 25 compras o más. Barra verde: retorno. Barra oscura: cuánta plata tiene hoy.</p>
+            <div class="rank"><div class="rank-row">
+  <div class="rank-name">1. Sammy Cáceres<small>Pregunta retadora · Rutina real</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>7,12</b></div>
+    <div class="bar"><i class="ok" style="width:79%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>11%</b></div>
+    <div class="bar spend"><i style="width:54%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>97 compras</b>$22.902 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">2. Jaime<small>Historia de consistencia</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>6,29</b></div>
+    <div class="bar"><i class="ok" style="width:69%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>21%</b></div>
+    <div class="bar spend"><i style="width:100%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>170 compras</b>$24.184 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">3. Yeyo Agudelo<small>Entrenador · Validadores</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>6,02</b></div>
+    <div class="bar"><i class="ok" style="width:66%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>11%</b></div>
+    <div class="bar spend"><i style="width:55%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>86 compras</b>$26.191 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">4. Natalia Múnera<small>Pregunta retadora · Rutina real</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>5,76</b></div>
+    <div class="bar"><i class="mid" style="width:64%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>9%</b></div>
+    <div class="bar spend"><i style="width:42%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>63 compras</b>$27.247 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">5. Gabriela Schiappa<small>Pregunta retadora · Rutina real</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>5,38</b></div>
+    <div class="bar"><i class="mid" style="width:59%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>7%</b></div>
+    <div class="bar spend"><i style="width:32%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>65 compras</b>$19.967 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">6. David Ruiz<small>Pregunta retadora</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>5,21</b></div>
+    <div class="bar"><i class="mid" style="width:58%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>17%</b></div>
+    <div class="bar spend"><i style="width:82%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>126 compras</b>$26.854 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">7. Camila Vélez<small>Rutina real · Historia</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>4,74</b></div>
+    <div class="bar"><i class="bad" style="width:52%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>6%</b></div>
+    <div class="bar spend"><i style="width:29%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>50 compras</b>$23.511 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">8. Alejandra Barragán<small>Nutricionista · Validadores</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>4,65</b></div>
+    <div class="bar"><i class="bad" style="width:51%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>14%</b></div>
+    <div class="bar spend"><i style="width:66%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>93 compras</b>$29.155 / compra</div>
+</div><div class="sublabel" style="margin-top:18px">Señales con muestra corta</div><div class="rank-row">
+  <div class="rank-name">Exio<small>Historia de consistencia</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>9,05</b></div>
+    <div class="bar"><i class="ok" style="width:100%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>2%</b></div>
+    <div class="bar spend"><i style="width:10%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>20 compras</b>$20.481 / compra</div>
+</div><div class="rank-row">
+  <div class="rank-name">Luisa Méndez<small>Rutina real</small></div>
+  <div>
+    <div class="bar-label"><span>ROAS ponderado</span><b>8,58</b></div>
+    <div class="bar"><i class="ok" style="width:95%"></i></div>
+    <div class="bar-label"><span>% del gasto total</span><b>2%</b></div>
+    <div class="bar spend"><i style="width:9%"></i></div>
+  </div>
+  <div class="rank-kpis"><b>17 compras</b>$22.159 / compra</div>
+</div></div>
+            <div class="rcap">ROAS ponderado por inversión. Jaime Cobos ("Error deportista") queda fuera: 3 compras con $56.593 invertidos.</div>
+            <div class="kpi-star" style="margin-top:16px">
+                <span class="kpi-star-tag">Lo que sigue al revés</span>
+                <span class="kpi-star-text">Jaime, David y Alejandra concentran el <b>52% del gasto</b> con ROAS entre 4,65 y 6,29. Sammy y Yeyo, los dos mejores del ranking, tienen el <b>23%</b>. Y los cinco videos ganadores (Creatina costosa, Rutina v2, Pregunta v2, Curiosidad, Pregunta frecuente) rinden <b>7,50</b> con apenas el <b>21% del presupuesto</b>.</span>
             </div>
         </section>
 
-        <!-- ===== PIEZAS DESTACADAS ===== -->
         <section>
-            <h2>Las piezas, una a una</h2>
-            <p>El promedio de cada conjunto esconde diferencias grandes entre piezas. Estas son las que definen la campaña:</p>
-            <div class="sublabel">Las que jalan</div>
-            <div class="piece-grid">
-                <div class="piece">
-                    <div class="piece-roas">6,43</div>
-                    <div class="piece-t">Prioridad alimenticia</div>
-                    <div class="piece-m">Sammy Cáceres · Rutina real</div>
-                    <div class="piece-stats"><span>36 compras</span><span>$16.012 / compra</span><span>CTR 2,71%</span></div>
-                </div>
-                <div class="piece">
-                    <div class="piece-roas">9,29</div>
-                    <div class="piece-t">Pregunta</div>
-                    <div class="piece-m">Gabriela Schiappa · Pregunta retadora</div>
-                    <div class="piece-stats"><span>13 compras</span><span>$14.426 / compra</span><span>CPC $517</span></div>
-                </div>
-                <div class="piece">
-                    <div class="piece-roas">7,49</div>
-                    <div class="piece-t">Creencias</div>
-                    <div class="piece-m">Yeyo Agudelo · Validadores</div>
-                    <div class="piece-stats"><span>19 compras</span><span>$16.035 / compra</span><span>CPC $587</span></div>
-                </div>
-                <div class="piece">
-                    <div class="piece-roas">5,99</div>
-                    <div class="piece-t">Rutina v1</div>
-                    <div class="piece-m">Natalia Múnera · Rutina real</div>
-                    <div class="piece-stats"><span>16 compras</span><span>$19.053 / compra</span><span>CTR 1,57%</span></div>
-                </div>
-                <div class="piece">
-                    <div class="piece-roas">7,85<small>Apagada</small></div>
-                    <div class="piece-t">Rutina v2</div>
-                    <div class="piece-m">Natalia Múnera · Pregunta retadora</div>
-                    <div class="piece-stats"><span>10 compras</span><span>$15.232 / compra</span></div>
-                </div>
-                <div class="piece">
-                    <div class="piece-roas">20,87<small>Validación</small></div>
-                    <div class="piece-t">Pregunta frecuente</div>
-                    <div class="piece-m">Yeyo Agudelo · Validadores (iso)</div>
-                    <div class="piece-stats"><span>6 compras</span><span>$13.929 / compra</span></div>
-                </div>
-            </div>
-            <div class="sublabel">Las que frenan (concentran la inversión)</div>
-            <div class="piece-grid">
-                <div class="piece mid">
-                    <div class="piece-roas">5,16</div>
-                    <div class="piece-t">Pagar más por marca</div>
-                    <div class="piece-m">David Ruiz · Pregunta retadora</div>
-                    <div class="piece-stats"><span>$1,91M invertidos</span><span>80 compras</span><span>$23.837 / compra</span></div>
-                </div>
-                <div class="piece mid">
-                    <div class="piece-roas">4,62</div>
-                    <div class="piece-t">Creatina v1</div>
-                    <div class="piece-m">Jaime · Historia de consistencia</div>
-                    <div class="piece-stats"><span>$1,99M invertidos</span><span>78 compras</span><span>$25.476 / compra</span><span>Frecuencia 4,26</span></div>
-                </div>
-                <div class="piece mid">
-                    <div class="piece-roas">4,94</div>
-                    <div class="piece-t">Proteína</div>
-                    <div class="piece-m">Alejandra Barragán · Validadores</div>
-                    <div class="piece-stats"><span>$1,38M invertidos</span><span>50 compras</span><span>$27.643 / compra</span></div>
-                </div>
-                <div class="piece bad">
-                    <div class="piece-roas">3,97</div>
-                    <div class="piece-t">Creatina</div>
-                    <div class="piece-m">Alejandra Barragán · Validadores</div>
-                    <div class="piece-stats"><span>$562K invertidos</span><span>26 compras</span><span>$21.619 / compra</span></div>
-                </div>
-                <div class="piece mid">
-                    <div class="piece-roas">4,21</div>
-                    <div class="piece-t">Triatlón ajuste</div>
-                    <div class="piece-m">Camila Vélez · Historia de consistencia</div>
-                    <div class="piece-stats"><span>$386K invertidos</span><span>14 compras</span><span>$27.606 / compra</span><span>CTR 1,06%</span></div>
-                </div>
-                <div class="piece bad">
-                    <div class="piece-roas">&mdash;<small>Sin compras</small></div>
-                    <div class="piece-t">Error deportista</div>
-                    <div class="piece-m">Jaime Cobos · corrió en 3 conjuntos</div>
-                    <div class="piece-stats"><span>$40K invertidos</span><span>0 compras</span></div>
-                </div>
-            </div>
-            <p class="rcap">"Pagar más" y la creatina de Jaime suman $3,89M — el 35% de toda la campaña — con ROAS bajo el promedio (5,43). Matiz con "Pagar más": tiene el mejor CPC de la campaña ($383) y CTR 2,36% — engancha barato, lo caro es la conversión. No se apaga; se deja de concentrar.</p>
-            <p class="note">Actualización de la llamada: las piezas que aparecían <strong>apagadas con buen ROAS no se apagaron por rendimiento</strong> — fue redistribución de presupuesto del equipo de pauta para que ninguna pieza (en especial las de Alejandra) se llevara todo el consumo. "Pregunta frecuente" de Yeyo corre hoy en el conjunto de validación con ROAS 20,87. Estructura entendida y alineada: se mantienen como están.</p>
-        </section>
-
-        <!-- ===== SEMÁFORO ===== -->
-        <section>
-            <h2>El semáforo aplicado</h2>
-            <p>En la propuesta definimos la regla para decidir video a video: verde se escala, amarillo se itera, rojo se cambia la hipótesis. Aplicada a este corte, contra el promedio de la campaña (ROAS 5,43):</p>
-            <div class="sem">
-                <div class="sem-item"><span class="sem-dot" style="background:#16a34a;"></span><span><b>Verde —</b> Ángulos: Pregunta retadora (5,69) y Rutina real (5,60). Creadores: Yeyo Agudelo (8,78), Sammy Cáceres (6,26), Gabriela Schiappa (5,98) y Natalia Múnera (5,76). Piezas: "Pregunta" de Gabriela (9,29), "Creencias" de Yeyo (7,49) y "Prioridad alimenticia" de Sammy (6,43) → reciben más presupuesto y más producción.</span></div>
-                <div class="sem-item"><span class="sem-dot" style="background:#f59e0b;"></span><span><b>Amarillo —</b> Validadores a escala (5,20) y los tres creadores que concentran la plata: David Ruiz (5,16 — su "Pagar más" engancha barato pero convierte caro), Jaime (5,07, con fatiga) y Camila Vélez (4,75) → se iteran; el presupuesto migra gradualmente hacia los verdes.</span></div>
-                <div class="sem-item"><span class="sem-dot" style="background:#dc2626;"></span><span><b>Rojo —</b> Historia de consistencia como conjunto (4,86, cayendo con frecuencia 4,49: congelado hasta tener piezas nuevas), Alejandra Barragán (4,66 concentrando casi $2M), Exio (3,79), "Error deportista" (0 compras en 3 conjuntos) y la v2 ya apagada (4,40) → se cambia la hipótesis o se descarta.</span></div>
-            </div>
-            <p class="note">Sobre el benchmark: el equipo de pauta mide directamente desde <strong>Shopify</strong> y está armando el cruce con Meta; en la primera revisión conjunta ambas fuentes van alineadas (Yeyo y Gabriela también lideran según Shopify). Ese cruce, junto con el CAC de la cuenta, será el número común contra el que se tomen las decisiones de escalado.</p>
-        </section>
-
-        <!-- ===== QUÉ RECOMENDAMOS ===== -->
-        <section>
-            <h2>Qué recomendamos hacer</h2>
-            <ul class="inc">
-                <li><b>Los ángulos a escalar son Pregunta retadora y Rutina real</b> (5,69 y 5,60, ambos sobre el promedio y con los mejores CTR: 2,26% y 2,13%). Historia queda congelada hasta tener piezas nuevas y Validadores se arregla por dentro.</li>
-                <li><b>Los creadores a escalar son Yeyo, Sammy y Gabriela — hoy tienen solo el 22% del gasto.</b> Yeyo Agudelo es el mejor de la campaña (8,78, $15.812/compra) y su validación de Validadores sostiene 12,55: graduarla a escala. A Sammy (mejor hook: CTR 2,71%) y Gabriela (su "Pregunta" en 9,29) darles más ángulos y más presupuesto. Con estos creadores ya validados conviene seguir trabajando: no hay que reenviar producto ni volver a probar desde cero.</li>
-                <li><b>Rebalancear gradualmente el 59% que hoy está en David Ruiz, Jaime y Alejandra</b> (ROAS 4,7–5,2). "Pagar más" no se apaga — su CPC de $383 es el mejor de la campaña — pero deja de concentrar: probar el mismo hook con los creadores verdes.</li>
-                <li><b>Mecánica de escalado propuesta al equipo de pauta:</b> montar una campaña nueva con las piezas ganadoras — un anuncio por conjunto, cada uno con presupuesto independiente — sin apagar la campaña actual. Así el algoritmo no puede volver a concentrar la plata en las piezas de mejor clic. Queda a criterio del equipo de pauta.</li>
-                <li><b>Historia de consistencia necesita creadores nuevos, no más plata:</b> cayó de 5,15 a 4,86 en dos días, el 71% del gasto está en la creatina de Jaime con frecuencia 4,26, y Exio no funcionó. Yeyo o Sammy grabando este ángulo es el cruce obvio a probar.</li>
-                <li><b>Descartar "Error deportista"</b> (0 compras en 3 conjuntos, $40K invertidos) y las piezas de Exio (3,79 con el costo por compra más alto: $33.160). Regla roja: se cambia la hipótesis, no se insiste.</li>
-                <li><b>Exprimir el contenido en crudo:</b> LA REAL entrega el material en bruto de todos los creadores. Del crudo de los hooks ganadores pueden salir muchas versiones nuevas editadas por el equipo de la marca — escalado sin costo de producción adicional.</li>
-            </ul>
+            <h2>Qué hacer para seguir escalando</h2>
+            <ol class="steps">
+                <li class="win"><b>Escalar en horizontal, no en vertical.</b> Dejar de subir presupuesto a conjuntos grandes. Montar conjuntos de $80K a $125K diarios, uno por video ganador, y crecer duplicando conjuntos, no presupuesto. La prueba ya existe: el conjunto mediano de Pregunta retadora corre a $123K/día y sostiene 8,98 con 92 compras. Regla: conjunto con frecuencia mayor a 4 se refresca o se apaga.</li>
+                <li><b>Poner la plata en los cinco videos ganadores.</b> Creatina costosa (Sammy), Rutina v2 (Natalia), Pregunta v2 (Gabriela), Curiosidad y Pregunta frecuente (Yeyo). Hoy tienen el 21% del gasto y rinden 7,50 a $21.619 por compra. Cada uno con su conjunto propio para que Meta no vuelva a concentrar la entrega en el video de mejor clic.</li>
+                <li><b>Apagar cinco videos.</b> Creatina de Alejandra (3,39), Rutina v1 de Natalia (3,64), Triatlón de Camila (3,75), Snack de Gabriela (3,92) y Creencias de Yeyo (4,25). Suman $3.447.298 (17% del gasto) a ROAS 3,77. Esa misma plata en los ganadores serían unos $12,9M más en ventas.</li>
+                <li><b>Ponerle tope a los dos videos más caros.</b> "Pagar más" de David y "Proteína" de Alejandra son el 25% del gasto y rinden 5,15 y 5,17, por debajo del promedio. No se apagan ("Pagar más" tiene el mejor CTR y CPC de la campaña) pero ninguno vuelve a pasar del 10% del presupuesto. La creatina de Jaime sigue, pero en conjunto mediano: allí rinde 9,22 y a escala está en frecuencia 5,05.</li>
+                <li><b>Segunda tanda de contenido con los que ya vendieron.</b> Repiten Sammy, Natalia, Gabriela, Yeyo y Jaime (nueva versión de creatina: la v1 está agotada). Los hooks a replicar son Creatina costosa, Rutina v2 y Pregunta. Luisa y Exio se prueban en conjunto mediano antes de decidir (10,63 y 16,08 allí, pero con muestra corta). Alejandra y Camila no repiten. Del material en crudo pueden salir versiones nuevas sin producción adicional.</li>
+            </ol>
             <div class="guarantee">
                 <span class="g-tag">En una frase</span>
-                <p>Los ángulos ganadores son <b>Pregunta retadora y Rutina real</b>; los creadores ganadores son <b>Yeyo, Sammy y Gabriela</b> — y hoy tienen solo el 22% del presupuesto. El próximo ciclo es alinear la plata con el ranking: más presupuesto y más piezas para los verdes, creadores frescos para Historia — <b>double down en lo que vende</b>, como quedó en la propuesta.</p>
+                <p>El contenido ya demostró que vende: <b>ROAS 6,40 en lo invertido del último ciclo</b>. Lo que frena el crecimiento es la estructura. Muchos conjuntos medianos con los videos ganadores, tope a los videos caros y una segunda tanda con los creadores que ya vendieron.</p>
             </div>
         </section>
 
-        <!-- ===== ACUERDOS DE LA LLAMADA ===== -->
-        <section>
-            <h2>Acuerdos de la llamada de seguimiento — 4 de septiembre</h2>
-            <p>Lo que quedó acordado entre LA REAL, el equipo de pauta y Sin Intermediarios, con su responsable:</p>
-            <ul class="inc">
-                <li><b>LA REAL —</b> Actualizar este reporte con el costo por compra de cada anuncio (hecho en esta versión) y compartirlo por el grupo de WhatsApp.</li>
-                <li><b>LA REAL —</b> Presentar la próxima semana un análisis de comentarios y sentimiento por creador: el equipo de la marca ha recibido comentarios negativos en algunas piezas (tipo "no se ven los productos") y los ha estado ocultando. Cruzarlo con los retornos puede explicar piezas flojas.</li>
-                <li><b>LA REAL —</b> Al final del ciclo, dos caminos posibles: segunda tanda de contenido (nuevos ángulos y/o nuevos creadores) o entrega del playbook de lo que funciona para que la marca siga escalando.</li>
-                <li><b>Equipo de pauta —</b> Compartir su informe con datos directos de Shopify para cruzarlo con Meta. En la primera revisión, ambas fuentes van alineadas: Yeyo y Gabriela también lideran según Shopify.</li>
-                <li><b>Equipo de pauta —</b> Evaluar la campaña de escalado propuesta (un anuncio ganador por conjunto, cada uno con presupuesto propio, sin apagar la estructura actual). Agregar el análisis de por qué Meta concentra entrega en ciertas piezas cuando un creador supere ~18–20% del gasto.</li>
-                <li><b>Sin Intermediarios —</b> El contenido en crudo de todos los creadores está disponible como entregable: el equipo de la marca puede editar versiones nuevas de los hooks ganadores sin producción adicional.</li>
-                <li><b>Aclarado en la llamada —</b> Las piezas de Yeyo que aparecían apagadas fueron redistribución de presupuesto (no bajo rendimiento) y "Pregunta frecuente" corre en validación con 20,87: se mantienen como están. Y los contenidos no tienen fecha de apagado — quedan evergreen mientras el performance acompañe; se apaga pieza a pieza lo que caiga.</li>
-            </ul>
-        </section>
-
-        <!-- ===== CIERRE ===== -->
         <div class="next">
             <h2>Siguiente paso</h2>
-            <p>Próxima revisión de resultados: <b>viernes 11 de septiembre, 2:00 p.m.</b> Sobre la mesa: el corte actualizado de la campaña, el análisis de comentarios por creador y el cruce Meta–Shopify del equipo de pauta. Con eso se decide la segunda tanda: qué creadores repiten, qué ángulos nuevos entran y con qué presupuesto se escala.</p>
+            <p>Sobre la mesa en la próxima revisión con el equipo de pauta: <b>aprobar la reestructura a conjuntos medianos</b>, definir el presupuesto de la segunda tanda de contenido y cruzar estos números con el reporte de Shopify. Todos los datos de este informe vienen de Meta Ads; la decisión final se toma contra el costo por compra real de la tienda.</p>
             <a class="cta" href="https://wa.me/573043148428?text=Hola%20Juanfe%2C%20tengo%20una%20duda%20sobre%20el%20an%C3%A1lisis%20de%20la%20campa%C3%B1a%20UGC" target="_blank">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                ¿Dudas antes del viernes? Escríbenos
+                ¿Dudas? Escríbenos
             </a>
         </div>
 
