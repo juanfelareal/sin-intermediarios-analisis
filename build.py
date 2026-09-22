@@ -168,7 +168,7 @@ extra_css = '''
         .vinfo { padding:14px 16px 16px; }
         .vinfo b { display:block; font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; }
         .vinfo > span { display:block; font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 10px; }
-        .vinfo .piece-stats span { display:inline-block; margin:0; }
+        .vinfo .piece-stats { gap:5px; } .vinfo .piece-stats span { display:inline-block; margin:0; font-size:10.5px; padding:2px 8px; }
         @media (max-width:720px){ .vgrid{grid-template-columns:1fr 1fr; gap:10px;} .vinfo{padding:12px;} .vinfo b{font-size:13.5px;} }
     </style>'''
 head = head.replace('    </style>', extra_css, 1)
