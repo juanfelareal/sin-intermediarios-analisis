@@ -67,9 +67,9 @@ vid_rows=''
 vmain=[v for v in vid_rank if vagg[v]['compras']>=20]; vsig=[v for v in vid_rank if vagg[v]['compras']<20]
 for i,v in enumerate(vmain+vsig,1):
     g=vagg[v]; t,c,a=VIDEOS[v]
-    if v==vsig[0]: vid_rows += '<tr class="grp"><td colspan="6">Señales con muestra corta (10 a 19 compras)</td></tr>'
+    if v==vsig[0]: vid_rows += '<tr class="grp"><td colspan="7">Señales con muestra corta (10 a 19 compras)</td></tr>'
     num = f'{i}. ' if v in vmain else ''
-    vid_rows += f'''<tr><td class="ad"><span class="dot {cls(g['roas'])}"></span>{num}{t}<small>{c} · {a}</small></td><td>{cop(g['spend'])}<small>{pct(g['share'],1)} del gasto</small></td><td>{g['compras']}</td><td>{cop(g['cpa'])}</td><td class="roas">{r2(g['roas'])}</td><td class="vn">{vnote[v]}</td></tr>'''
+    vid_rows += f'''<tr><td class="ad"><span class="dot {cls(g['roas'])}"></span>{num}{t}<small>{c} · {a}</small></td><td>{cop(g['spend'])}<small>{pct(g['share'],1)} del gasto</small></td><td><b>{cop(g['val'])}</b></td><td>{g['compras']}</td><td>{cop(g['cpa'])}</td><td class="roas">{r2(g['roas'])}</td><td class="vn">{vnote[v]}</td></tr>'''
 small_txt = '; '.join(f"{VIDEOS[v][0]} de {VIDEOS[v][1]} ({r2(vagg[v]['roas'])}, {vagg[v]['compras']} compras)" for v in sorted(vid_small, key=lambda v:-vagg[v]['roas']))
 
 # ---------- creadores ----------
@@ -93,7 +93,7 @@ for i,c in enumerate(cmain+csig,1):
     <div class="bar-label"><span>% del gasto total</span><b>{g['share']:.0f}%</b></div>
     <div class="bar spend"><i style="width:{100*g['share']/maxshare:.0f}%"></i></div>
   </div>
-  <div class="rank-kpis"><b>{g['compras']} compras</b>{cop(g['cpa'])} / compra</div>
+  <div class="rank-kpis"><b>{cop(g['val'])}</b>vendidos<br>{g['compras']} compras<br>{cop(g['cpa'])} / compra</div>
 </div>'''
 
 # ---------- escala vs low ----------
@@ -127,7 +127,7 @@ for v in TOP_VIDEOS:
         media=f'<div class="vph">{PH_SVG}<span>Video pendiente</span></div>'
     vcards += f'''<div class="vcard">
   <div class="vmedia">{media}<div class="vroas">{r2(g['roas'])}<small>ROAS</small></div></div>
-  <div class="vinfo"><b>{t}</b><span>{c} · {a}</span><div class="piece-stats"><span>{g['compras']} compras</span><span>{cop(g['cpa'])} / compra</span></div></div>
+  <div class="vinfo"><b>{t}</b><span>{c} · {a}</span><div class="vsold">Vendió <b>{cop(g['val'])}</b> con {cop(g['spend'])} invertidos</div><div class="piece-stats"><span>{g['compras']} compras</span><span>{cop(g['cpa'])} / compra</span></div></div>
 </div>'''
 
 # ---------- galería de creadores top ----------
@@ -153,12 +153,45 @@ for c in TOP_CREATORS:
   <div class="vmedia">{media}</div>
   <div class="cinfo">
     <div class="cn">{c}</div><div class="cr">{crole[c]} · {g['share']:.0f}% del gasto</div>
-    <div class="cbig"><div><b>{r2(g['roas'])}</b><span>ROAS</span></div><div><b>{g['compras']}</b><span>Compras</span></div><div><b>{cop(g['cpa'])}</b><span>Por compra</span></div><div><b>{bv}</b><span>Mejor video · {r2(bg['roas'])}</span></div></div>
+    <div class="cbig"><div><b>{r2(g['roas'])}</b><span>ROAS</span></div><div><b>{cop(g['val'])}</b><span>Vendió</span></div><div><b>{g['compras']}</b><span>Compras</span></div><div><b>{cop(g['cpa'])}</b><span>Por compra</span></div><div><b>{bv}</b><span>Mejor video · {r2(bg['roas'])}</span></div></div>
     <p>{cnote[c]}</p>
   </div>
 </div>'''
 
-head = open('/Users/realjuanfe/Desktop/sin-intermediarios-analisis/index.html').read().split('<body>')[0]
+# ---------- transcripciones ----------
+DUR = {'sammy_creatina_costosa':45,'natalia_rutina_v2':48,'yeyo_curiosidad':26,'yeyo_pregunta_frecuente':33,'gabriela_pregunta_v2':33,'jaime_creatina_v1':35}
+HOOK = {
+ 'sammy_creatina_costosa':'¿Por qué una creatina tiene que ser tan costosa para ser buena?',
+ 'natalia_rutina_v2':'¿Cuánto estás pagando realmente por tu proteína? Porque yo dejé de pagar de más por un simple logo.',
+ 'yeyo_curiosidad':'Hay algo que muy pocas personas te dicen cuando empiezas a entrenar.',
+ 'yeyo_pregunta_frecuente':'Como entrenador hay una pregunta que me hacen casi todos los días',
+ 'gabriela_pregunta_v2':'las cuentas mensuales no me daban',
+ 'jaime_creatina_v1':'Como triatleta sentía que todo el tiempo estaba cansado',
+}
+WHY = {
+ 'sammy_creatina_costosa':'<p><b>Cuestiona una creencia de compra desde el primer segundo</b> y la responde con su propia historia: ella también compraba lo caro pensando que era mejor.</p><p><b>Aterriza el argumento en un cálculo</b> (precio por porción de algo que se toma todos los días). Es el posicionamiento exacto de Sin Intermediarios, dicho por una clienta y no por la marca.</p><p><b>La marca aparece al final</b> como la conclusión lógica del razonamiento, no como pauta. Tono de confesión ("siendo sincera") y cero promesas de resultados.</p>',
+ 'natalia_rutina_v2':'<p><b>Hook doble:</b> una pregunta de precio y una declaración de cambio ("dejé de pagar de más por un logo").</p><p><b>Es el único ganador que lee la etiqueta en cámara:</b> 26 g de proteína por porción, cero azúcar añadido, aislada de suero. Datos concretos que le dan credibilidad al "fíjate en lo de adentro".</p><p><b>La prueba de que el ángulo pesa más que la creadora:</b> su Rutina v1 (mismo estilo, sin el argumento de precio) es el peor video con muestra de la campaña.</p>',
+ 'yeyo_curiosidad':'<p><b>No vende nada.</b> Es un consejo de entrenador sobre constancia, y la creatina entra como uno de los hábitos que él repite. La marca casi no se nombra; el producto está en pantalla.</p><p><b>El más corto de los seis (26 s)</b> y el de costo por compra más bajo en el conjunto iso low ($13.601). El menos publicitario de la campaña es uno de los que mejor convierte.</p><p><b>Autoridad sin discurso:</b> "la disciplina siempre va a dar mejores resultados que cualquier atajo" es lo que un cliente quiere escuchar de un entrenador antes de comprar.</p>',
+ 'yeyo_pregunta_frecuente':'<p><b>Hook de autoridad:</b> "como entrenador, la pregunta que me hacen todos los días". Responde a la objeción real del comprador: ¿necesito proteína?</p><p><b>Honestidad que vende:</b> "depende de tu alimentación" y "no reemplaza una buena alimentación, la complementa". Al no sobrevender, la recomendación de la Whey suena a criterio profesional.</p><p><b>Argumento de compra:</b> practicidad y sabor, dicho de paso. Funciona como respuesta a una duda, no como anuncio.</p>',
+ 'gabriela_pregunta_v2':'<p><b>La historia más completa en 33 segundos:</b> problema económico concreto y emocional (las cuentas no daban, frustración por no alcanzar el potencial), giro por recomendación de un amigo, y resultado ("mi proceso se disparó").</p><p><b>Junta los tres argumentos de la marca:</b> "no venden nombres ni pantallas", sabores y la certificación Informed Choice de la creatina. Es el único video que menciona una certificación.</p><p><b>Resultado:</b> el costo por compra más bajo entre los ganadores ($16.416). Quien llega convencido por este video, compra.</p>',
+ 'jaime_creatina_v1':'<p><b>Transformación clásica:</b> triatleta cansado sin saber por qué, prueba la creatina, "todo cambió". Es el más publicitario de los seis, con llamado a la acción directo al final.</p><p><b>Toca precio, contenido y presentación</b> en una sola frase, más "no cae mal": responde las objeciones típicas de la creatina sin detenerse en ninguna.</p><p><b>Es el que más volumen movió (170 compras) y el que más rápido se desgasta</b> (frecuencia 5,05 en el conjunto grande): las historias de transformación agotan audiencia más rápido que los argumentos de precio. Por eso pide una versión nueva.</p>',
+}
+def read_t(v):
+    t=open(f'transcripciones/{v}.txt', encoding='utf-8').read().replace('\n',' ').strip()
+    t=re.sub(r'\s+',' ',t)
+    for a,b in [('esa aislada','es aislada'),('en día probé','un día probé'),('no rendían los deportes','no rendía en los deportes'),('delicioso','deliciosa')]: t=t.replace(a,b)
+    h=HOOK[v]
+    if h in t: t=t.replace(h, f'<mark>{h}</mark>',1)
+    return t
+tcards=''
+for v in TOP_VIDEOS:
+    t,c,a=VIDEOS[v]; g=vagg[v]
+    tcards += f'''<div class="tcard">
+  <div class="thead"><b>{t} · {c}</b><span>{a} · ROAS <em>{r2(g['roas'])}</em> · vendió <em>{cop(g['val'])}</em> · {g['compras']} compras · {DUR[v]} s</span></div>
+  <div class="tgrid"><blockquote class="tq">{read_t(v)}</blockquote><div class="twhy"><div class="sublabel">Por qué gana</div>{WHY[v]}</div></div>
+</div>'''
+
+head = open('head.html').read()
 head = head.replace('511 compras con ROAS 5,43 y qué decidimos con cada ángulo', '791 compras con ROAS 5,86. Ranking de ángulos, videos y creadores, y qué hacer para seguir escalando')
 extra_css = '''
         .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; transform:translateY(-1px); }
@@ -173,7 +206,8 @@ extra_css = '''
         .steps li::before { counter-increment:s; content: counter(s); position:absolute; left:20px; top:18px; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
         .steps li b { display:block; color:var(--ink); font-size:16.5px; font-weight:800; letter-spacing:-0.3px; margin-bottom:6px; }
         .steps li.win { border:1.5px solid var(--green); }
-        .kpi-chips { grid-template-columns: repeat(4,1fr); }
+        .kpi-chips { grid-template-columns: repeat(5,1fr); gap:10px; }
+        .chip.hl { border:1.5px solid var(--green); }
         .chip em { display:block; font-style:normal; font-size:11.5px; font-weight:700; margin-top:6px; color:var(--green); }
         .chip em.up { color:#dc2626; }
         .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
@@ -183,7 +217,7 @@ extra_css = '''
         .split .sr { font-size:36px; font-weight:900; letter-spacing:-1.5px; line-height:1; color:var(--ink); }
         .split .hi .sr { color:var(--green); }
         .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
-        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .chip.hl{grid-column:1 / -1;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
 
         .vgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
         .vcard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
@@ -195,12 +229,13 @@ extra_css = '''
         .vroas small { font-weight:700; font-size:9.5px; letter-spacing:1px; margin-left:4px; }
         .vinfo { padding:14px 16px 16px; }
         .vinfo b { display:block; font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; }
+        .vsold { font-size:12.5px; color:#4b5563; margin-bottom:10px; line-height:1.4; } .vsold b { color:var(--green); font-weight:800; }
         .vinfo > span { display:block; font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 10px; }
         .vinfo .piece-stats { gap:5px; } .vinfo .piece-stats span { display:inline-block; margin:0; font-size:10.5px; padding:2px 8px; }
         @media (max-width:720px){ .vgrid{grid-template-columns:1fr 1fr; gap:10px;} .vinfo{padding:12px;} .vinfo b{font-size:13.5px;} }
 
         .cgrid { display:grid; gap:14px; }
-        .ccard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:grid; grid-template-columns:150px 1fr; }
+        .ccard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:grid; grid-template-columns:250px 1fr; }
         .ccard .vmedia { aspect-ratio:9/16; }
         .cinfo { padding:20px 24px; display:flex; flex-direction:column; justify-content:center; }
         .cinfo .cn { font-size:19px; font-weight:900; color:var(--ink); letter-spacing:-0.5px; }
@@ -210,7 +245,19 @@ extra_css = '''
         .cinfo .cbig div:first-child b { color:var(--green); }
         .cinfo .cbig div span { font-size:11px; font-weight:700; color:#9ca3af; text-transform:uppercase; letter-spacing:0.5px; }
         .cinfo p { font-size:13.5px; color:#6b7280; margin:0; line-height:1.5; }
-        @media (max-width:720px){ .ccard{grid-template-columns:1fr;} .ccard .vmedia{aspect-ratio:9/12;} .cinfo{padding:16px;} }
+        @media (max-width:720px){ .ccard{grid-template-columns:1fr;} .ccard .vmedia{aspect-ratio:9/16;} .cinfo{padding:16px;} }
+
+        .tcard { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin-bottom:14px; }
+        .thead { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+        .thead b { font-size:17px; font-weight:800; color:var(--ink); letter-spacing:-0.3px; }
+        .thead span { font-size:12px; color:#9ca3af; font-weight:600; }
+        .thead span em { font-style:normal; color:var(--green); font-weight:800; }
+        .tgrid { display:grid; grid-template-columns:1.15fr 1fr; gap:22px; }
+        .tq { font-size:14px; line-height:1.6; color:#4b5563; border-left:3px solid rgba(13,27,42,0.12); padding-left:16px; margin:0; font-style:italic; }
+        .tq mark { background:rgba(22,163,74,0.14); color:var(--ink); font-style:normal; font-weight:600; padding:0 2px; border-radius:3px; }
+        .twhy .sublabel { margin:0 0 8px; color:var(--green); }
+        .twhy p { font-size:14px; line-height:1.55; margin:0 0 8px; }
+        @media (max-width:720px){ .tgrid{grid-template-columns:1fr;} .tcard{padding:18px;} }
     </style>'''
 head = head.replace('    </style>', extra_css, 1)
 
@@ -235,6 +282,7 @@ body = f'''<body>
             <div class="kpi-chips">
                 <div class="chip"><b>{cop(TOTAL['spend'])}</b><span>Inversión total</span></div>
                 <div class="chip"><b>{TOTAL['compras']}</b><span>Compras</span></div>
+                <div class="chip hl"><b>{mill(TOTAL['spend']*TOTAL['roas'])}</b><span>Ventas atribuidas según Meta</span></div>
                 <div class="chip"><b>{r2(TOTAL['roas'])}</b><span>ROAS de la campaña</span></div>
                 <div class="chip"><b>{cop(TOTAL['cpa'])}</b><span>Costo por compra</span></div>
             </div>
@@ -262,9 +310,9 @@ body = f'''<body>
 
         <section>
             <h2>Ranking de videos</h2>
-            <p>Cada video sumando todos los conjuntos donde corrió. Ranking por ROAS entre los videos con 20 compras o más; abajo, las señales con muestra corta.</p>
+            <p>Cada video sumando todos los conjuntos donde corrió. Ventas = inversión × ROAS atribuido por Meta. Ranking por ROAS entre los videos con 20 compras o más; abajo, las señales con muestra corta.</p>
             <div class="rtable-wrap"><table class="rtable">
-                <thead><tr><th>Video</th><th>Inversión</th><th>Compras</th><th>Costo / compra</th><th>ROAS</th><th>Lectura</th></tr></thead>
+                <thead><tr><th>Video</th><th>Inversión</th><th>Ventas</th><th>Compras</th><th>Costo / compra</th><th>ROAS</th><th>Lectura</th></tr></thead>
                 <tbody>{vid_rows}</tbody>
             </table></div>
             <div class="rcap">Sin muestra suficiente: {small_txt}.</div>
@@ -277,10 +325,20 @@ body = f'''<body>
         </section>
 
         <section>
+            <h2>Qué dicen los videos que ganan</h2>
+            <p>Transcripción completa de los seis videos ganadores y lo que explica su resultado. El hook está resaltado.</p>
+            {tcards}
+            <div class="kpi-star" style="margin-top:6px">
+                <span class="kpi-star-tag">El patrón</span>
+                <span class="kpi-star-text">Cinco de los seis abren <b>cuestionando algo</b>: el precio, el logo o una creencia. El argumento que se repite es <b>"pagar por lo de adentro, no por el nombre"</b>, que es el posicionamiento de la marca dicho en primera persona por alguien que ya compró. La marca aparece tarde (después del segundo 15), <b>ninguno usa descuento ni oferta</b> y ninguno promete un resultado físico. Duran entre 26 y 48 segundos. Ese es el brief de la segunda tanda.</span>
+            </div>
+        </section>
+
+        <section>
             <h2>Ranking de creadores</h2>
             <p>Todas las piezas de cada creador en todos los conjuntos, con 25 compras o más. Barra verde: retorno. Barra oscura: cuánta plata tiene hoy.</p>
             <div class="rank">{cr_rows}</div>
-            <div class="rcap">ROAS ponderado por inversión. Jaime Cobos ("Error deportista") queda fuera: 3 compras con $56.593 invertidos.</div>
+            <div class="rcap">Ventas atribuidas = inversión × ROAS de Meta. ROAS ponderado por inversión. Jaime Cobos ("Error deportista") queda fuera: 3 compras con $56.593 invertidos.</div>
             <div class="kpi-star" style="margin-top:16px">
                 <span class="kpi-star-tag">Lo que sigue al revés</span>
                 <span class="kpi-star-text">Jaime, David y Alejandra concentran el <b>52% del gasto</b> con ROAS entre 4,65 y 6,29. Sammy y Yeyo, los dos mejores del ranking, tienen el <b>23%</b>. Y los cinco videos ganadores (Creatina costosa, Rutina v2, Pregunta v2, Curiosidad, Pregunta frecuente) rinden <b>{r2(gwin['roas'])}</b> con apenas el <b>{gwin['share']:.0f}% del presupuesto</b>.</span>
