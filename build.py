@@ -113,6 +113,23 @@ print(f"escala {E['roas']:.2f} cpa {E['cpa']:.0f} cpm {cpm_e:.0f} share {E['shar
 print(f"off spend {goff['spend']:,} share {goff['share']:.1f} roas {goff['roas']:.2f} | win spend {gwin['spend']:,} share {gwin['share']:.1f} roas {gwin['roas']:.2f} compras {gwin['compras']} cpa {gwin['cpa']:.0f} | uplift {uplift:,.0f}")
 print(f"inc roas {inc_roas:.2f} inc compras {inc_c} inc spend {inc_s:,}")
 
+
+# ---------- galería de videos top ----------
+import os
+TOP_VIDEOS = ['sammy_creatina_costosa','natalia_rutina_v2','yeyo_curiosidad','yeyo_pregunta_frecuente','gabriela_pregunta_v2','jaime_creatina_v1']
+PH_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg>'
+vcards=''
+for v in TOP_VIDEOS:
+    g=vagg[v]; t,c,a=VIDEOS[v]; f=f'videos/{v}.mp4'
+    if os.path.exists(f):
+        media=f'<video controls playsinline preload="metadata" src="{f}"></video>'
+    else:
+        media=f'<div class="vph">{PH_SVG}<span>Video pendiente</span></div>'
+    vcards += f'''<div class="vcard">
+  <div class="vmedia">{media}<div class="vroas">{r2(g['roas'])}<small>ROAS</small></div></div>
+  <div class="vinfo"><b>{t}</b><span>{c} · {a}</span><div class="piece-stats"><span>{g['compras']} compras</span><span>{cop(g['cpa'])} / compra</span></div></div>
+</div>'''
+
 head = open('/Users/realjuanfe/Desktop/sin-intermediarios-analisis/index.html').read().split('<body>')[0]
 head = head.replace('511 compras con ROAS 5,43 y qué decidimos con cada ángulo', '791 compras con ROAS 5,86. Ranking de ángulos, videos y creadores, y qué hacer para seguir escalando')
 extra_css = '''
@@ -139,6 +156,20 @@ extra_css = '''
         .split .hi .sr { color:var(--green); }
         .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
         @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+
+        .vgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+        .vcard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+        .vmedia { position:relative; aspect-ratio:9/16; background:#0D1B2A; }
+        .vmedia video { width:100%; height:100%; object-fit:cover; display:block; }
+        .vph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:#94a3b8; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 12px, transparent 12px 24px); }
+        .vph svg { width:46px; height:46px; }
+        .vroas { position:absolute; top:12px; left:12px; background:var(--green); color:#fff; font-weight:900; font-size:15px; letter-spacing:-0.3px; padding:5px 11px; border-radius:50px; }
+        .vroas small { font-weight:700; font-size:9.5px; letter-spacing:1px; margin-left:4px; }
+        .vinfo { padding:14px 16px 16px; }
+        .vinfo b { display:block; font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; }
+        .vinfo > span { display:block; font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 10px; }
+        .vinfo .piece-stats span { display:inline-block; margin:0; }
+        @media (max-width:720px){ .vgrid{grid-template-columns:1fr 1fr; gap:10px;} .vinfo{padding:12px;} .vinfo b{font-size:13.5px;} }
     </style>'''
 head = head.replace('    </style>', extra_css, 1)
 
@@ -199,6 +230,12 @@ body = f'''<body>
         </section>
 
         <section>
+            <h2>Los videos que más venden</h2>
+            <p>Los seis videos con mejor retorno y muestra sólida. Son los que reciben más presupuesto y marcan el estilo de la segunda tanda.</p>
+            <div class="vgrid">{vcards}</div>
+        </section>
+
+        <section>
             <h2>Ranking de creadores</h2>
             <p>Todas las piezas de cada creador en todos los conjuntos, con 25 compras o más. Barra verde: retorno. Barra oscura: cuánta plata tiene hoy.</p>
             <div class="rank">{cr_rows}</div>
@@ -223,15 +260,6 @@ body = f'''<body>
                 <p>El contenido ya demostró que vende: <b>ROAS 5,86 con $19,7M invertidos</b>. Lo que frena el crecimiento es la estructura. Muchos conjuntos iso low con los videos ganadores, tope a los videos caros y una segunda tanda con los creadores que ya vendieron.</p>
             </div>
         </section>
-
-        <div class="next">
-            <h2>Siguiente paso</h2>
-            <p>Sobre la mesa en la próxima revisión con el equipo de pauta: <b>aprobar la reestructura a conjuntos iso low</b>, definir el presupuesto de la segunda tanda de contenido y cruzar estos números con el reporte de Shopify. Todos los datos de este informe vienen de Meta Ads; la decisión final se toma contra el costo por compra real de la tienda.</p>
-            <a class="cta" href="https://wa.me/573043148428?text=Hola%20Juanfe%2C%20tengo%20una%20duda%20sobre%20el%20an%C3%A1lisis%20de%20la%20campa%C3%B1a%20UGC" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                ¿Dudas? Escríbenos
-            </a>
-        </div>
 
         <div class="foot">
             <span>Preparado por <img src="logo-la-real.png" alt="LA REAL"> — Agencia digital</span>

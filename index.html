@@ -242,6 +242,81 @@
         .split .hi .sr { color:var(--green); }
         .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
         @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+
+        .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; transform:translateY(-1px); }
+        .dot.ok, .bar i.ok { background: var(--green); } .dot.mid { background:#f59e0b; } .dot.bad { background:#dc2626; }
+        .rtable td small { display:block; font-size:11px; color:#9ca3af; font-weight:600; }
+        .rtable .vrow td { text-align:left; white-space:normal; font-size:13px; color:#6b7280; padding:0 14px 14px 31px; border-bottom:1px solid var(--line); }
+        .rtable .vn { text-align:left; white-space:normal; font-size:12.5px; color:#6b7280; min-width:260px; line-height:1.4; }
+        .rtable .ad small { text-transform:none; letter-spacing:0; }
+        .rank-name em { font-style:normal; font-size:10px; font-weight:700; color:#b45309; background:#fef3c7; border-radius:50px; padding:2px 8px; margin-left:6px; vertical-align:middle; }
+        .steps { list-style:none; display:grid; gap:12px; counter-reset: s; }
+        .steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 20px 64px; position:relative; font-size:15px; color:#4b5563; line-height:1.55; }
+        .steps li::before { counter-increment:s; content: counter(s); position:absolute; left:20px; top:18px; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+        .steps li b { display:block; color:var(--ink); font-size:16.5px; font-weight:800; letter-spacing:-0.3px; margin-bottom:6px; }
+        .steps li.win { border:1.5px solid var(--green); }
+        .kpi-chips { grid-template-columns: repeat(4,1fr); }
+        .chip em { display:block; font-style:normal; font-size:11.5px; font-weight:700; margin-top:6px; color:var(--green); }
+        .chip em.up { color:#dc2626; }
+        .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+        .split > div { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+        .split > div.hi { border:1.5px solid var(--green); }
+        .split .st { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+        .split .sr { font-size:36px; font-weight:900; letter-spacing:-1.5px; line-height:1; color:var(--ink); }
+        .split .hi .sr { color:var(--green); }
+        .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
+        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+
+        .vgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+        .vcard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+        .vmedia { position:relative; aspect-ratio:9/16; background:#0D1B2A; }
+        .vmedia video { width:100%; height:100%; object-fit:cover; display:block; }
+        .vph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:#94a3b8; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 12px, transparent 12px 24px); }
+        .vph svg { width:46px; height:46px; }
+        .vroas { position:absolute; top:12px; left:12px; background:var(--green); color:#fff; font-weight:900; font-size:15px; letter-spacing:-0.3px; padding:5px 11px; border-radius:50px; }
+        .vroas small { font-weight:700; font-size:9.5px; letter-spacing:1px; margin-left:4px; }
+        .vinfo { padding:14px 16px 16px; }
+        .vinfo b { display:block; font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; }
+        .vinfo span { display:block; font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 10px; }
+        @media (max-width:720px){ .vgrid{grid-template-columns:1fr 1fr; gap:10px;} .vinfo{padding:12px;} .vinfo b{font-size:13.5px;} }
+
+        .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; transform:translateY(-1px); }
+        .dot.ok, .bar i.ok { background: var(--green); } .dot.mid { background:#f59e0b; } .dot.bad { background:#dc2626; }
+        .rtable td small { display:block; font-size:11px; color:#9ca3af; font-weight:600; }
+        .rtable .vrow td { text-align:left; white-space:normal; font-size:13px; color:#6b7280; padding:0 14px 14px 31px; border-bottom:1px solid var(--line); }
+        .rtable .vn { text-align:left; white-space:normal; font-size:12.5px; color:#6b7280; min-width:260px; line-height:1.4; }
+        .rtable .ad small { text-transform:none; letter-spacing:0; }
+        .rank-name em { font-style:normal; font-size:10px; font-weight:700; color:#b45309; background:#fef3c7; border-radius:50px; padding:2px 8px; margin-left:6px; vertical-align:middle; }
+        .steps { list-style:none; display:grid; gap:12px; counter-reset: s; }
+        .steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px 20px 64px; position:relative; font-size:15px; color:#4b5563; line-height:1.55; }
+        .steps li::before { counter-increment:s; content: counter(s); position:absolute; left:20px; top:18px; width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+        .steps li b { display:block; color:var(--ink); font-size:16.5px; font-weight:800; letter-spacing:-0.3px; margin-bottom:6px; }
+        .steps li.win { border:1.5px solid var(--green); }
+        .kpi-chips { grid-template-columns: repeat(4,1fr); }
+        .chip em { display:block; font-style:normal; font-size:11.5px; font-weight:700; margin-top:6px; color:var(--green); }
+        .chip em.up { color:#dc2626; }
+        .split { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+        .split > div { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+        .split > div.hi { border:1.5px solid var(--green); }
+        .split .st { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+        .split .sr { font-size:36px; font-weight:900; letter-spacing:-1.5px; line-height:1; color:var(--ink); }
+        .split .hi .sr { color:var(--green); }
+        .split .sm { font-size:13px; color:#6b7280; margin-top:8px; line-height:1.5; }
+        @media (max-width:720px){ .kpi-chips{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} .steps li{padding:18px 18px 18px 56px;} }
+
+        .vgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+        .vcard { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+        .vmedia { position:relative; aspect-ratio:9/16; background:#0D1B2A; }
+        .vmedia video { width:100%; height:100%; object-fit:cover; display:block; }
+        .vph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:#94a3b8; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; background:repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 12px, transparent 12px 24px); }
+        .vph svg { width:46px; height:46px; }
+        .vroas { position:absolute; top:12px; left:12px; background:var(--green); color:#fff; font-weight:900; font-size:15px; letter-spacing:-0.3px; padding:5px 11px; border-radius:50px; }
+        .vroas small { font-weight:700; font-size:9.5px; letter-spacing:1px; margin-left:4px; }
+        .vinfo { padding:14px 16px 16px; }
+        .vinfo b { display:block; font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; }
+        .vinfo > span { display:block; font-size:12px; color:#9ca3af; font-weight:600; margin:2px 0 10px; }
+        .vinfo .piece-stats span { display:inline-block; margin:0; }
+        @media (max-width:720px){ .vgrid{grid-template-columns:1fr 1fr; gap:10px;} .vinfo{padding:12px;} .vinfo b{font-size:13.5px;} }
     </style>
 </head>
 <body>
@@ -298,6 +373,30 @@
                 <tbody><tr><td class="ad"><span class="dot ok"></span>1. Creatina costosa<small>Sammy Cáceres · Pregunta retadora</small></td><td>$1.125.969<small>5,7% del gasto</small></td><td>51</td><td>$22.078</td><td class="roas">8,68</td><td class="vn">El mejor video con muestra sólida. Vive en el conjunto iso low.</td></tr><tr><td class="ad"><span class="dot ok"></span>2. Rutina v2<small>Natalia Múnera · Pregunta retadora</small></td><td>$826.849<small>4,2% del gasto</small></td><td>39</td><td>$21.201</td><td class="roas">8,04</td><td class="vn">11,15 en iso low, 5,96 en el conjunto grande, 0,96 en la v2. Ganador que Meta subestimó.</td></tr><tr><td class="ad"><span class="dot ok"></span>3. Curiosidad<small>Yeyo Agudelo · Validadores profesionales</small></td><td>$599.226<small>3,0% del gasto</small></td><td>28</td><td>$21.401</td><td class="roas">7,20</td><td class="vn">12,64 en iso low con CPA $13.601, el más barato de la campaña.</td></tr><tr><td class="ad"><span class="dot ok"></span>4. Pregunta frecuente<small>Yeyo Agudelo · Validadores profesionales</small></td><td>$962.940<small>4,9% del gasto</small></td><td>34</td><td>$28.322</td><td class="roas">6,55</td><td class="vn">Sube a 9,05 en iso low; en el conjunto grande cuesta $29.067 por compra.</td></tr><tr><td class="ad"><span class="dot ok"></span>5. Pregunta v2<small>Gabriela Schiappa · Pregunta retadora</small></td><td>$722.319<small>3,7% del gasto</small></td><td>44</td><td>$16.416</td><td class="roas">6,54</td><td class="vn">Mejor costo por compra entre los ganadores ($16.416). Corrió apagada y prendida.</td></tr><tr><td class="ad"><span class="dot ok"></span>6. Creatina v1<small>Jaime · Historia de consistencia</small></td><td>$4.111.354<small>20,9% del gasto</small></td><td>170</td><td>$24.184</td><td class="roas">6,29</td><td class="vn">El caballo de batalla: 21% del gasto y 170 compras. Fatigado a escala (frecuencia 5,05).</td></tr><tr><td class="ad"><span class="dot mid"></span>7. Creatina v3<small>David Ruiz · Pregunta retadora</small></td><td>$428.181<small>2,2% del gasto</small></td><td>20</td><td>$21.409</td><td class="roas">5,65</td><td class="vn">Correcto, sin muestra grande. Segunda opción de David.</td></tr><tr><td class="ad"><span class="dot mid"></span>8. Prioridad alimenticia<small>Sammy Cáceres · Rutina real</small></td><td>$1.095.487<small>5,6% del gasto</small></td><td>46</td><td>$23.815</td><td class="roas">5,52</td><td class="vn">Mejor CTR de la campaña (2,78%). Solo ha corrido en el conjunto caro de Rutina.</td></tr><tr><td class="ad"><span class="dot mid"></span>9. Recetas v2<small>Camila Vélez · Rutina real</small></td><td>$498.702<small>2,5% del gasto</small></td><td>23</td><td>$21.683</td><td class="roas">5,52</td><td class="vn">El único video de Camila sobre el promedio del ángulo. Está apagado.</td></tr><tr><td class="ad"><span class="dot mid"></span>10. Proteína<small>Alejandra Barragán · Validadores profesionales</small></td><td>$1.924.984<small>9,8% del gasto</small></td><td>64</td><td>$30.078</td><td class="roas">5,17</td><td class="vn">10% del gasto a ROAS 5,17 y $30.078 por compra: cara por conversión.</td></tr><tr><td class="ad"><span class="dot mid"></span>11. Pagar más por marca<small>David Ruiz · Pregunta retadora</small></td><td>$2.955.446<small>15,0% del gasto</small></td><td>106</td><td>$27.882</td><td class="roas">5,15</td><td class="vn">15% del gasto, el más grande. Mejor CTR (2,31%) y CPC ($423) pero convierte a $27.882.</td></tr><tr><td class="ad"><span class="dot bad"></span>12. Creencias<small>Yeyo Agudelo · Validadores profesionales</small></td><td>$690.221<small>3,5% del gasto</small></td><td>24</td><td>$28.759</td><td class="roas">4,25</td><td class="vn">El único Yeyo por debajo de 5. Reemplazarlo por Curiosidad.</td></tr><tr><td class="ad"><span class="dot bad"></span>13. Snack v3<small>Gabriela Schiappa · Rutina real</small></td><td>$575.553<small>2,9% del gasto</small></td><td>21</td><td>$27.407</td><td class="roas">3,92</td><td class="vn">Apagar. La fuerza de Gabriela está en Pregunta, no en Snack.</td></tr><tr><td class="ad"><span class="dot bad"></span>14. Rutina v1<small>Natalia Múnera · Rutina real</small></td><td>$889.687<small>4,5% del gasto</small></td><td>24</td><td>$37.070</td><td class="roas">3,64</td><td class="vn">Apagar. $37.070 por compra, el peor de la campaña con muestra.</td></tr><tr><td class="ad"><span class="dot bad"></span>15. Creatina<small>Alejandra Barragán · Validadores profesionales</small></td><td>$786.416<small>4,0% del gasto</small></td><td>29</td><td>$27.118</td><td class="roas">3,39</td><td class="vn">Apagar. El ROAS más bajo con muestra sólida.</td></tr><tr class="grp"><td colspan="6">Señales con muestra corta (10 a 19 compras)</td></tr><tr><td class="ad"><span class="dot ok"></span>Creatina<small>Exio · Historia de consistencia</small></td><td>$246.173<small>1,2% del gasto</small></td><td>15</td><td>$16.412</td><td class="roas">12,36</td><td class="vn">Casi todo en el conjunto iso low (16,08). Señal fuerte, muestra corta.</td></tr><tr><td class="ad"><span class="dot ok"></span>Rutina v1<small>Luisa Méndez · Rutina real</small></td><td>$376.708<small>1,9% del gasto</small></td><td>17</td><td>$22.159</td><td class="roas">8,58</td><td class="vn">10,63 en iso low, 3,25 en el conjunto grande. Probar de nuevo en iso low.</td></tr><tr><td class="ad"><span class="dot mid"></span>Montaña v1<small>Camila Vélez · Historia de consistencia</small></td><td>$171.424<small>0,9% del gasto</small></td><td>12</td><td>$14.285</td><td class="roas">5,36</td><td class="vn">Barato ($14.061/compra) pero sin escala.</td></tr><tr><td class="ad"><span class="dot bad"></span>Triatlón ajuste<small>Camila Vélez · Historia de consistencia</small></td><td>$505.421<small>2,6% del gasto</small></td><td>15</td><td>$33.695</td><td class="roas">3,75</td><td class="vn">Apagar. CTR 1,05% y $33.695 por compra.</td></tr></tbody>
             </table></div>
             <div class="rcap">Sin muestra suficiente: Error deportista de Jaime Cobos (13,46, 3 compras); Proteína de Exio (4,06, 5 compras).</div>
+        </section>
+
+        <section>
+            <h2>Los videos que más venden</h2>
+            <p>Los seis videos con mejor retorno y muestra sólida. Son los que reciben más presupuesto y marcan el estilo de la segunda tanda.</p>
+            <div class="vgrid"><div class="vcard">
+  <div class="vmedia"><div class="vph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg><span>Video pendiente</span></div><div class="vroas">8,68<small>ROAS</small></div></div>
+  <div class="vinfo"><b>Creatina costosa</b><span>Sammy Cáceres · Pregunta retadora</span><div class="piece-stats"><span>51 compras</span><span>$22.078 / compra</span></div></div>
+</div><div class="vcard">
+  <div class="vmedia"><div class="vph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg><span>Video pendiente</span></div><div class="vroas">8,04<small>ROAS</small></div></div>
+  <div class="vinfo"><b>Rutina v2</b><span>Natalia Múnera · Pregunta retadora</span><div class="piece-stats"><span>39 compras</span><span>$21.201 / compra</span></div></div>
+</div><div class="vcard">
+  <div class="vmedia"><div class="vph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg><span>Video pendiente</span></div><div class="vroas">7,20<small>ROAS</small></div></div>
+  <div class="vinfo"><b>Curiosidad</b><span>Yeyo Agudelo · Validadores profesionales</span><div class="piece-stats"><span>28 compras</span><span>$21.401 / compra</span></div></div>
+</div><div class="vcard">
+  <div class="vmedia"><div class="vph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg><span>Video pendiente</span></div><div class="vroas">6,55<small>ROAS</small></div></div>
+  <div class="vinfo"><b>Pregunta frecuente</b><span>Yeyo Agudelo · Validadores profesionales</span><div class="piece-stats"><span>34 compras</span><span>$28.322 / compra</span></div></div>
+</div><div class="vcard">
+  <div class="vmedia"><div class="vph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg><span>Video pendiente</span></div><div class="vroas">6,54<small>ROAS</small></div></div>
+  <div class="vinfo"><b>Pregunta v2</b><span>Gabriela Schiappa · Pregunta retadora</span><div class="piece-stats"><span>44 compras</span><span>$16.416 / compra</span></div></div>
+</div><div class="vcard">
+  <div class="vmedia"><div class="vph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg><span>Video pendiente</span></div><div class="vroas">6,29<small>ROAS</small></div></div>
+  <div class="vinfo"><b>Creatina v1</b><span>Jaime · Historia de consistencia</span><div class="piece-stats"><span>170 compras</span><span>$24.184 / compra</span></div></div>
+</div></div>
         </section>
 
         <section>
@@ -415,15 +514,6 @@
                 <p>El contenido ya demostró que vende: <b>ROAS 5,86 con $19,7M invertidos</b>. Lo que frena el crecimiento es la estructura. Muchos conjuntos iso low con los videos ganadores, tope a los videos caros y una segunda tanda con los creadores que ya vendieron.</p>
             </div>
         </section>
-
-        <div class="next">
-            <h2>Siguiente paso</h2>
-            <p>Sobre la mesa en la próxima revisión con el equipo de pauta: <b>aprobar la reestructura a conjuntos iso low</b>, definir el presupuesto de la segunda tanda de contenido y cruzar estos números con el reporte de Shopify. Todos los datos de este informe vienen de Meta Ads; la decisión final se toma contra el costo por compra real de la tienda.</p>
-            <a class="cta" href="https://wa.me/573043148428?text=Hola%20Juanfe%2C%20tengo%20una%20duda%20sobre%20el%20an%C3%A1lisis%20de%20la%20campa%C3%B1a%20UGC" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                ¿Dudas? Escríbenos
-            </a>
-        </div>
 
         <div class="foot">
             <span>Preparado por <img src="logo-la-real.png" alt="LA REAL"> — Agencia digital</span>
